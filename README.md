@@ -35,5 +35,5 @@ Here is a list of themes powered by bootswatch. If you use the folder structure 
 # Further Information
 
 * [bookdown](https://github.com/bookdown/Bookdown.Bookdown)
-
+* [bootswatch themes](https://bootswatch.com/)
 
