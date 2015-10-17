@@ -51,7 +51,7 @@ Visit [bootswatch.com](https://bootswatch.com/) to see how the theme looks like.
 
 ## Generate Documentation
 
-> Change the path to your bookdown.json
+> Change the path to your bookdown.json. The following commands uses the documentation in this repository for an example.
 
 Documentation example is [in the doc tree](book/), and can be compiled using [bookdown](http://bookdown.io) and [Docker](https://www.docker.com/)
 
