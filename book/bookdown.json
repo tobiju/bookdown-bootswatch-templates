@@ -3,6 +3,6 @@
     "content": [
         "example.md"
     ],
-    "target": "../../",
+    "target": "./html",
     "template": "../templates/darkly/main.php"
 }
