@@ -1,8 +1,0 @@
-{
-    "title": "My Book",
-    "content": [
-        "example.md"
-    ],
-    "target": "../../",
-    "template": "../templates/darkly/main.php"
-}
