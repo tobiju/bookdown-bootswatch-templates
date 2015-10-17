@@ -1,4 +1,4 @@
-# Bookdown.io with Bootswatch Styles and Prism Syntax Highlighting
+# Bookdown.io With Bootswatch Styles And Prism Syntax Highlighting
 
 If you generate your documentations with (bookdown)[http://bookdown.io/] and want some nice themes and syntax highlighting 
 for your code blocks then this package come to the rescue :).
