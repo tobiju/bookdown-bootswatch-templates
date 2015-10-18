@@ -1,6 +1,6 @@
 <?php
 // default library templates
-$library = dirname(dirname(__DIR__)) . "/vendor/bookdown/bookdown/templates/";
+$library = "vendor/bookdown/bookdown/templates";
 
 // project-specific templates
 $template_path = __DIR__;
