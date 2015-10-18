@@ -1,15 +1,19 @@
 {
-    "name": "bookdown/project",
-    "type": "project",
-    "description": "A skeleton Bookdown project.",
+    "name": "tobiju/bookdown-bootswatch-templates",
+    "type": "library",
+    "description": "Bookdown.io With Bootswatch Styles And Prism Syntax Highlighting",
     "keywords": [
+        "bookdown",
+        "templates",
+        "syntax",
+        "highlighting",
         "docbook",
         "markdown",
         "manual",
         "documentation",
         "static site"
     ],
-    "homepage": "https://github.com/bookdown/Bookdown.Project",
+    "homepage": "https://github.com/tobiju/bookdown-bootswatch-templates",
     "license": "BSD-2-Clause",
     "authors": [
         {
@@ -18,6 +22,18 @@
         }
     ],
     "require": {
-        "bookdown/bookdown": "~0.0"
+        "bookdown/bookdown": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "book"
+        ]
     }
 }
