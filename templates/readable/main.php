@@ -1,6 +1,6 @@
 <?php
 // default library templates
-$library = "vendor/bookdown/bookdown/templates";
+$library = (getenv('VENDOR_PATH') ?: 'vendor') . "/bookdown/bookdown/templates";
 
 // project-specific templates
 $template_path = __DIR__;
