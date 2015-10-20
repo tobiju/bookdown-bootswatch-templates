@@ -25,7 +25,7 @@ The following example uses the `darkly` theme. If you want to use another theme,
 ```
 {
     ...
-    "template": "vendor/tobiju/bookdown-bootswatch-templates/templates/darkly/main.php"
+    "template": "../vendor/tobiju/bookdown-bootswatch-templates/templates/darkly/main.php"
 }
 ```
 
@@ -51,13 +51,15 @@ Visit [bootswatch.com](https://bootswatch.com/) to see how the theme looks like.
 
 ## Generate Documentation
 
-> Change the path to your bookdown.json. The following commands uses the documentation in this repository for an example.
+> Change the path to your bookdown.json file. The following commands uses the documentation in this repository for an example.
 
-Documentation example is [in the doc tree](book/), and can be compiled using [bookdown](http://bookdown.io) and [Docker](https://www.docker.com/)
+Documentation example is [in the doc tree](book/), and can be compiled using [bookdown](http://bookdown.io) and [Docker](https://www.docker.com/).
+The following example uses the [Docker Bookdown](https://hub.docker.com/r/sandrokeil/bookdown/) and you can use it also
+out of the box for your project.
 
 ```console
-$ docker run -i -t=false --rm -v $(pwd):/app sandrokeil/bookdown book/bookdown.json
-$ docker run -i -t=false --rm -p 8080:8080 -v $(pwd):/app php:5.6-cli php -S 0.0.0.0:8080 -t /app/book/html
+$ docker run -it --rm -v $(pwd):/app sandrokeil/bookdown book/bookdown.json
+$ docker run -it --rm -p 8080:8080 -v $(pwd):/app php:5.6-cli php -S 0.0.0.0:8080 -t /app/book/html
 ```
 
 or make sure bookdown is installed globally via composer and `$HOME/.composer/vendor/bin` is on your `$PATH`.
@@ -72,5 +74,4 @@ Then browse to [http://localhost:8080/](http://localhost:8080/)
 ## Further Information
 
 * [bookdown](https://github.com/bookdown/Bookdown.Bookdown)
-
-
+* [Docker bookdown image with these templates](https://hub.docker.com/r/sandrokeil/bookdown/)
