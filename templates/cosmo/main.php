@@ -18,7 +18,7 @@ $templates->set("toc", "{$template_path}/../toc.php");
 
 <!DOCTYPE html>
 <html>
-    <meta charset="utf-8" />
+
     <?php echo $this->render("head"); ?>
     <?php echo $this->render("body"); ?>
 </html>
