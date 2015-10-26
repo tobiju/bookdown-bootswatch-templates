@@ -1,8 +1,8 @@
 <head>
     <title><?php echo $this->page->getTitle(); ?></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/superhero/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    <link rel="stylesheet" href="http://tobiju.github.io/share/prismjs/prism.css" />
+    <script src="http://tobiju.github.io/share/prismjs/prism.js"></script>
 
     <style>
         *, html {
