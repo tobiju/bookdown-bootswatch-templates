@@ -50,7 +50,7 @@ $next = $this->page->getNext();
 
                     <p>
                         Contributed by <a href="https://github.com/tobiju">tobiju</a> and <a
-                            href="https://github.com/skeil">skeil</a>.
+                            href="https://github.com/sandrokeil">skeil</a>.
                     </p>
                 </div>
             </div>
