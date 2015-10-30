@@ -1,8 +1,9 @@
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title><?php echo $this->page->getTitle(); ?></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?php echo $theme_name; ?>/bootstrap.min.css">
-    <link rel="stylesheet" href="http://tobiju.github.io/share/prismjs/prism.css" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?php echo $theme_name; ?>/bootstrap.min.css">
+    <link rel="stylesheet" href="http://tobiju.github.io/share/prismjs/prism.css"/>
     <script src="http://tobiju.github.io/share/prismjs/main.js"></script>
     <script src="http://tobiju.github.io/share/prismjs/prism.js"></script>
 
@@ -86,30 +87,6 @@
             font-size: 17px;
         }
 
-        #content code {
-            padding: 3px;
-            /*border: 1px solid #ddd;*/
-            margin: 0 3px;
-            background: #444;
-            color: white;
-        }
-
-        #content pre code {
-            border: none;
-            background: none;
-            color: #444;
-            font-size: 17px;
-        }
-
-        #content h1,
-        #content h2,
-        #content h3,
-        #content h4,
-        #content h5,
-        #content h6 {
-            color: #337ab7;
-        }
-
         /* Footer Section */
         footer #links {
             border-top: 1px solid #ddd;
@@ -136,10 +113,14 @@
         }
 
         footer #copyright {
-            padding: 50px;
-            background: #222;
+            padding: 30px;
+            background: #fff;
             text-align: center;
             color: #444;
+        }
+
+        footer #copyright p {
+            margin: 0;
         }
 
         footer #copyright span a {

@@ -1,35 +1,25 @@
-<?php if (! $this->page->hasTocEntries()) {
+<?php if (!$this->page->hasTocEntries()) {
     return;
 } ?>
 
 <h1><?php echo $this->page->getNumberAndTitle(); ?></h1>
-<dl>
-<?php
-$entries = $this->page->getTocEntries();
-$baseLevel = reset($entries)->getLevel();
-$lastLevel = $baseLevel;
-$currLevel = $lastLevel;
+<table class="table table-striped">
+    <?php
+    $entries = $this->page->getTocEntries();
+    $baseLevel = reset($entries)->getLevel();
+    $lastLevel = $baseLevel;
+    $currLevel = $lastLevel;
 
-foreach ($entries as $entry) {
+    foreach ($entries as $entry) {
+        $number = trim($entry->getNumber(),'.');
 
-    while ($entry->getLevel() > $currLevel) {
-        echo "<dd><dl>" . PHP_EOL;
-        $currLevel ++;
+        echo '<tr>';
+        echo '<td>'."{$number}".'</td>';
+        echo '<td>'. $this->anchorRaw($entry->getHref(), $entry->getTitle()) . '</td>';
+        echo '</tr>';
+
+        $lastLevel = $entry->getLevel();
     }
 
-    while ($entry->getLevel() < $currLevel) {
-        $currLevel --;
-        echo "</dl></dd>" . PHP_EOL;
-    }
-
-    echo "<dt>{$entry->getNumber()} "
-        . $this->anchorRaw($entry->getHref(), $entry->getTitle())
-        . "</dt>" . PHP_EOL;
-}
-
-while ($currLevel > $baseLevel) {
-    $currLevel --;
-    echo "</dl></dd>" . PHP_EOL;
-}
-?>
-</dl>
+    ?>
+</table>

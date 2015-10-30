@@ -8,11 +8,10 @@ $next = $this->page->getNext();
     <div class="container">
         <div class="row">
             <div class="prev col-md-3">
-                <?php if ($prev) { ?>
-                <label for="">Prev</label>
-                <?php
-                    echo $this->anchorRaw($prev->getHref(), $prev->getTitle());
-                } ?>
+                <?php if ($prev): ?>
+                    <p>Prev</p>
+                    <?php echo $this->anchorRaw($prev->getHref(), $prev->getTitle()); ?>
+                <?php endif; ?>
             </div>
             <div class="current col-md-6">
                 <h3 class="title">
@@ -21,11 +20,10 @@ $next = $this->page->getNext();
                 <small class="parent">My Book</small>
             </div>
             <div class="next col-md-3">
-                <?php if ($next) { ?>
-                <label for="">Next</label>
-                <?php
-                    echo $this->anchorRaw($next->getHref(), $next->getTitle());
-                } ?>
+                <?php if ($next): ?>
+                    <p>Next</p>
+                    <?php echo $this->anchorRaw($next->getHref(), $next->getTitle()); ?>
+                <?php endif; ?>
             </div>
             <div class="clearfix"></div>
         </div>
