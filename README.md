@@ -49,6 +49,22 @@ Visit [bootswatch.com](https://bootswatch.com/) to see how the theme looks like.
 * united
 * yeti
 
+Visit [prismjs.com](http://prismjs.com/) / [prism-themes](https://github.com/PrismJS/prism-themes) to see how the prism theme looks like.
+
+* prism
+* dark
+* funky
+* okaidia
+* twilight
+* coy
+* atom-dark
+* base16-ateliersulphurpool.light
+* cb
+* ghcolors
+* hopscotch
+* pojoaque
+* xonokai
+
 ## Generate Documentation
 
 > Change the path to your bookdown.json file. The following commands uses the documentation in this repository for an example.
@@ -57,8 +73,11 @@ Documentation example is [in the doc tree](book/), and can be compiled using [bo
 The following example uses the [Docker Bookdown](https://hub.docker.com/r/sandrokeil/bookdown/) and you can use it also
 out of the box for your project.
 
+The theme is set by an environment `TEMPLATE` variable and the PRISM theme by `PRISM_THEME`. 
+Here is an example for the *cerulean* theme with the prism *coy* theme.
+
 ```console
-$ docker run -it --rm -v $(pwd):/app sandrokeil/bookdown book/bookdown.json
+$ docker run -it --rm -e TEMPLATE=cerulean -e PRISM_THEME=coy -v $(pwd):/app sandrokeil/bookdown book/bookdown.json
 $ docker run -it --rm -p 8080:8080 -v $(pwd):/app php:5.6-cli php -S 0.0.0.0:8080 -t /app/book/html
 ```
 

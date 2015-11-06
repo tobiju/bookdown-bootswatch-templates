@@ -15,9 +15,8 @@ $templates->set("navheader", "{$template_path}/navheader.php");
 $templates->set("navfooter", "{$template_path}/navfooter.php");
 $templates->set("toc", "{$template_path}/toc.php");
 ?>
-
 <!DOCTYPE html>
 <html>
-    <?php echo $this->render("head", array('theme_name' => $theme_name)); ?>
-    <?php echo $this->render("body"); ?>
+    <?= $this->render("head", array('theme_name' => $theme_name)); ?>
+    <?= $this->render("body"); ?>
 </html>

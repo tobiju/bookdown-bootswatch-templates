@@ -1,9 +1,12 @@
+<?php
+    $prism_theme = getenv('PRISM_THEME') ?: 'prism';
+?>
 <head>
     <meta charset="utf-8"/>
-    <title><?php echo $this->page->getTitle(); ?></title>
+    <title><?= $this->page->getTitle(); ?></title>
     <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?php echo $theme_name; ?>/bootstrap.min.css">
-    <link rel="stylesheet" href="http://tobiju.github.io/share/prismjs/prism.css"/>
+          href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?= $theme_name; ?>/bootstrap.min.css">
+    <link rel="stylesheet" href="http://tobiju.github.io/share/prismjs/prism-<?= $prism_theme; ?>.css"/>
     <script src="http://tobiju.github.io/share/prismjs/main.js"></script>
     <script src="http://tobiju.github.io/share/prismjs/prism.js"></script>
 

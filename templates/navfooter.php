@@ -16,19 +16,19 @@ $next = $this->page->getNext();
                 <div class="prev col-md-3">
                     <?php if ($prev): ?>
                         <p>Prev</p>
-                        <?php echo $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
+                        <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
                     <?php endif; ?>
                 </div>
                 <div class="parent col-md-6">
                     <?php if ($parent): ?>
                         <p>Up</p>
-                        <?php echo $this->anchorRaw($parent->getHref(), $parent->getNumberAndTitle()); ?>
+                        <?= $this->anchorRaw($parent->getHref(), $parent->getNumberAndTitle()); ?>
                     <?php endif; ?>
                 </div>
                 <div class="next col-md-3">
                     <?php if ($next): ?>
                         <p>Next</p>
-                        <?php echo $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
+                        <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
                     <?php endif; ?>
                 </div>
                 <div class="clearfix"></div>
@@ -50,7 +50,7 @@ $next = $this->page->getNext();
 
                     <p>
                         Contributed by <a href="https://github.com/tobiju">tobiju</a> and <a
-                            href="https://github.com/sandrokeil">skeil</a>.
+                            href="https://github.com/sandrokeil">sandrokeil</a>.
                     </p>
                 </div>
             </div>
