@@ -39,7 +39,6 @@
         header {
             border-bottom: 1px solid #ddd;
             background: #f8f8f8;
-            color: white;
             font-size: 16px;
             font-weight: 300;
         }

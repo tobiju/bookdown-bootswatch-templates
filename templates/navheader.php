@@ -6,23 +6,26 @@ $next = $this->page->getNext();
 
 <header>
     <div class="container">
+        <h3 class="title text-center">
+            <?= $this->page->getNumberAndTitle(); ?>
+        </h3>
         <div class="row">
             <div class="prev col-md-3">
                 <?php if ($prev): ?>
                     <p>Prev</p>
-                    <?= $this->anchorRaw($prev->getHref(), $prev->getTitle()); ?>
+                    <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
                 <?php endif; ?>
             </div>
             <div class="current col-md-6">
-                <h3 class="title">
-                    <?= $this->page->getNumberAndTitle(); ?>
-                </h3>
-                <small class="parent">My Book</small>
+                <?php if ($parent): ?>
+                    <p>Up</p>
+                    <?= $this->anchorRaw($parent->getHref(), $parent->getNumberAndTitle()); ?>
+                <?php endif; ?>
             </div>
             <div class="next col-md-3">
                 <?php if ($next): ?>
                     <p>Next</p>
-                    <?= $this->anchorRaw($next->getHref(), $next->getTitle()); ?>
+                    <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
                 <?php endif; ?>
             </div>
             <div class="clearfix"></div>
@@ -34,5 +37,4 @@ $next = $this->page->getNext();
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
 
