@@ -2,7 +2,7 @@
     return;
 } ?>
 
-<h1><?php echo $this->page->getNumberAndTitle(); ?></h1>
+<h1><?= $this->page->getNumberAndTitle(); ?></h1>
 <table class="table table-striped">
     <?php
     $entries = $this->page->getTocEntries();
