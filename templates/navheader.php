@@ -9,26 +9,29 @@ $next = $this->page->getNext();
         <h3 class="title text-center">
             <?= $this->page->getNumberAndTitle(); ?>
         </h3>
-        <div class="row">
-            <div class="prev col-md-3">
-                <?php if ($prev): ?>
-                    <p>Prev</p>
-                    <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
-                <?php endif; ?>
+    </div>
+    <div class="links">
+        <div class="container">
+            <div class="row">
+                <div class="prev col-xs-3">
+                    <?php if ($prev): ?>
+                        <p>Prev</p>
+                        <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
+                    <?php endif; ?>
+                </div>
+                <div class="parent col-xs-6">
+                    <?php if ($parent): ?>
+                        <p>Up</p>
+                        <?= $this->anchorRaw($parent->getHref(), $parent->getNumberAndTitle()); ?>
+                    <?php endif; ?>
+                </div>
+                <div class="next col-xs-3">
+                    <?php if ($next): ?>
+                        <p>Next</p>
+                        <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
+                    <?php endif; ?>
+                </div>
             </div>
-            <div class="current col-md-6">
-                <?php if ($parent): ?>
-                    <p>Up</p>
-                    <?= $this->anchorRaw($parent->getHref(), $parent->getNumberAndTitle()); ?>
-                <?php endif; ?>
-            </div>
-            <div class="next col-md-3">
-                <?php if ($next): ?>
-                    <p>Next</p>
-                    <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
-                <?php endif; ?>
-            </div>
-            <div class="clearfix"></div>
         </div>
     </div>
 </header>

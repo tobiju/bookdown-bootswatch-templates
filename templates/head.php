@@ -11,112 +11,50 @@
     <script src="http://tobiju.github.io/share/prismjs/prism.js"></script>
 
     <style>
-        *, html {
-            font-family: 'Lato', sans-serif;
-            font-weight: 400;
-        }
-
-        /* Global Rules */
-
-        .container {
-            /*background: #ddd;*/
-        }
-
-        .clearfix {
-            clear: both;
-        }
-
-        .rtrim {
-            padding-right: 0px;
-        }
-
-        .ltrim {
-            padding-left: 0px;
-        }
 
         /* Header Section */
 
         header {
-            border-bottom: 1px solid #ddd;
-            background: #f8f8f8;
+            background: white;
+            color: black;
             font-size: 16px;
-            font-weight: 300;
-        }
-
-        header .prev {
-            text-align: left;
-            padding-top: 30px;
-        }
-
-        header .next {
-            text-align: right;
-            padding-top: 30px;
-        }
-
-        header label {
-            display: block;
-            color: #ddd;
-            font-weight: 300;
-        }
-
-        header a {
-            /*color: white;*/
-        }
-
-        header .current {
-            text-align: center;
-            padding: 24px;
-        }
-
-        header .current h3.title {
-            padding: 0;
-            margin: 0;
-            color: #444;
-        }
-
-        header .current small.parent {
-            margin: 10px 0;
-            display: block;
-            font-size: 16px;
-            color: #888;
             font-weight: 300;
         }
 
         /* Content Section */
-
-        section#content {
-            margin: 24px 0;
+        #content {
+            margin-bottom: 16px;
             font-size: 17px;
         }
 
-        /* Footer Section */
-        footer #links {
-            border-top: 1px solid #ddd;
-            border-bottom: none;
-            padding: 30px 0;
+        .links {
+            background: #f8f8f8;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 16px 0;
         }
 
-        footer #links .prev {
+        .links .prev {
             text-align: left;
         }
 
-        footer #links .parent {
+        .links .parent {
             text-align: center;
         }
 
-        footer #links .next {
+        .links .next {
             text-align: right;
         }
 
-        footer #links label {
-            display: block;
-            color: #ddd;
-            font-weight: 300;
+
+        /* Footer Section */
+        footer {
+            color: black;
+            background: white;
         }
 
         footer #copyright {
             padding: 30px;
-            background: #fff;
             text-align: center;
             color: #444;
         }
