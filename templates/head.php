@@ -1,12 +1,17 @@
 <?php
     $prism_theme = getenv('PRISM_THEME') ?: 'prism';
+    $bootswatch_theme = getenv('BOOTSWATCH_THEME') ?: 'superhero';
 ?>
 <head>
     <meta charset="utf-8"/>
     <title><?= $this->page->getTitle(); ?></title>
     <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?= $theme_name; ?>/bootstrap.min.css">
-    <link rel="stylesheet" href="http://tobiju.github.io/share/prismjs/prism-<?= $prism_theme; ?>.css"/>
+          href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?= $bootswatch_theme; ?>/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="http://tobiju.github.io/share/prismjs/prism-<?= $prism_theme; ?>.css"/>
+    <link rel="stylesheet"
+          href="http://tobiju.github.io/share/prismjs/prism-linenumbers.css"/>
+
     <script src="http://tobiju.github.io/share/prismjs/main.js"></script>
     <script src="http://tobiju.github.io/share/prismjs/prism.js"></script>
 
@@ -65,6 +70,11 @@
 
         footer #copyright span a {
             color: white;
+        }
+
+        /* Overide bootsstrap default style */
+        table, .table {
+            font-size: inherit;
         }
     </style>
 

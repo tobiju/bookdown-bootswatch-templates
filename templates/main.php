@@ -17,6 +17,6 @@ $templates->set("toc", "{$template_path}/toc.php");
 ?>
 <!DOCTYPE html>
 <html>
-    <?= $this->render("head", array('theme_name' => $theme_name)); ?>
+    <?= $this->render("head"); ?>
     <?= $this->render("body"); ?>
 </html>
