@@ -1,14 +1,22 @@
 <?php
-    $prism_theme = getenv('PRISM_THEME') ?: 'prism';
-    $bootswatch_theme = getenv('BOOTSWATCH_THEME') ?: 'superhero';
+/**
+ * tobiju
+ *
+ * @link      https://github.com/tobiju/bookdown-bootswatch-templates for the canonical source repository
+ * @copyright Copyright (c) 2015 Tobias Jüschke
+ * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
+ */
+
+    $cssPrism = getenv('CSS_PRISM') ?: 'ghcolors';
+    $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 ?>
 <head>
     <meta charset="utf-8"/>
     <title><?= $this->page->getTitle(); ?></title>
     <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?= $bootswatch_theme; ?>/bootstrap.min.css">
+          href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?= $cssBootswatch; ?>/bootstrap.min.css">
     <link rel="stylesheet"
-          href="http://tobiju.github.io/share/prismjs/prism-<?= $prism_theme; ?>.css"/>
+          href="http://tobiju.github.io/share/prismjs/prism-<?= $cssPrism; ?>.css"/>
     <link rel="stylesheet"
           href="http://tobiju.github.io/share/prismjs/prism-linenumbers.css"/>
 
@@ -16,9 +24,19 @@
     <script src="http://tobiju.github.io/share/prismjs/prism.js"></script>
 
     <style>
+        body, html {
+            height: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .page-wrapper {
+                min-height: 100%;
+                padding-bottom: 204px;
+                position: relative;
+            }
+        }
 
         /* Header Section */
-
         header {
             background: white;
             color: black;
@@ -56,6 +74,14 @@
         footer {
             color: black;
             background: white;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+            }
         }
 
         footer #copyright {
