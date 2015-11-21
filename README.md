@@ -1,7 +1,7 @@
 # Bookdown.io With Bootswatch Styles And Prism Syntax Highlighting
 
-If you generate your documentations with [bookdown](http://bookdown.io/) and want some nice styles and syntax highlighting 
-for your code blocks then this package come to the rescue :).
+If you generate your documentation with [bookdown](http://bookdown.io/) and want some nice styles and syntax highlighting 
+for your code blocks, then this package come to the rescue :).
 
 ## Installation
 Installation of this library uses composer. For composer documentation, please refer to
@@ -11,7 +11,7 @@ Put the following into your composer.json
 
     {
         "require-dev": {
-            "tobiju/bookdown-bootswatch-templates": "^0.1.0"
+            "tobiju/bookdown-bootswatch-templates": "^0.2.0"
         }
     }
 
@@ -92,4 +92,6 @@ Then browse to [http://localhost:8080/](http://localhost:8080/)
 ## Further Information
 
 * [Bookdown](https://github.com/bookdown/Bookdown.Bookdown)
+* [Bootswatch](https://bootswatch.com/)
+* [PrismJS](http://prismjs.com/)
 * [Docker Bookdown image with these templates](https://hub.docker.com/r/sandrokeil/bookdown/)

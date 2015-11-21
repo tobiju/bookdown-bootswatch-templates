@@ -20,26 +20,7 @@ $next = $this->page->getNext();
 <footer>
     <div class="links">
         <div class="container">
-            <div class="row">
-                <div class="prev col-xs-3">
-                    <?php if ($prev): ?>
-                        <p>Prev</p>
-                        <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
-                    <?php endif; ?>
-                </div>
-                <div class="parent col-xs-6">
-                    <?php if ($parent): ?>
-                        <p>Up</p>
-                        <?= $this->anchorRaw($parent->getHref(), $parent->getNumberAndTitle()); ?>
-                    <?php endif; ?>
-                </div>
-                <div class="next col-xs-3">
-                    <?php if ($next): ?>
-                        <p>Next</p>
-                        <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
-                    <?php endif; ?>
-                </div>
-            </div>
+            <?= $this->render("nav"); ?>
         </div>
     </div>
     <div id="copyright">
@@ -47,17 +28,7 @@ $next = $this->page->getNext();
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                        Powered by <a href="www.bookdown.io">Bookdown.io</a> and <a
-                            href="bootswatch.com">bootswatch.com</a>.
-                    </p>
-
-                    <p>
-                        Designed by <a href="https://github.com/yuripertamax">yuripertamax</a>.
-                    </p>
-
-                    <p>
-                        Contributed by <a href="https://github.com/tobiju">tobiju</a> and <a
-                            href="https://github.com/sandrokeil">sandrokeil</a>.
+                        Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.
                     </p>
                 </div>
             </div>
