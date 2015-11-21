@@ -12,6 +12,9 @@
 ?>
 <head>
     <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="HandheldFriendly" content="True"/>
     <title><?= $this->page->getTitle(); ?></title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?= $cssBootswatch; ?>/bootstrap.min.css">
@@ -20,34 +23,29 @@
     <link rel="stylesheet"
           href="http://tobiju.github.io/share/prismjs/prism-linenumbers.css"/>
 
-    <script src="http://tobiju.github.io/share/prismjs/main.js"></script>
-    <script src="http://tobiju.github.io/share/prismjs/prism.js"></script>
-
     <style>
         body, html {
             height: 100%;
         }
 
-        @media (min-width: 768px) {
-            .page-wrapper {
-                min-height: 100%;
-                padding-bottom: 204px;
-                position: relative;
-            }
+        .page-wrapper {
+            min-height: 100%;
+            padding-bottom: 204px;
+            position: relative;
         }
 
         /* Header Section */
         header {
             background: white;
             color: black;
-            font-size: 16px;
             font-weight: 300;
         }
 
         /* Content Section */
         #content {
-            margin-bottom: 16px;
+            margin-bottom: 17px;
             font-size: 17px;
+            min-height: 200px;
         }
 
         .links {
@@ -74,14 +72,9 @@
         footer {
             color: black;
             background: white;
-        }
-
-        @media (min-width: 768px) {
-            footer {
-                width: 100%;
-                position: absolute;
-                bottom: 0;
-            }
+            width: 100%;
+            position: absolute;
+            bottom: 0;
         }
 
         footer #copyright {

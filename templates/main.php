@@ -17,7 +17,8 @@ $templatePath = __DIR__;
 $templates = $this->getViewRegistry();
 
 $templates->set("head", "{$templatePath}/head.php");
-$templates->set("body", "{$library}/body.php");
+$templates->set("body", "{$templatePath}/body.php");
+$templates->set("nav", "{$templatePath}/nav.php");
 $templates->set("core", "{$library}/core.php");
 $templates->set("navheader", "{$templatePath}/navheader.php");
 $templates->set("navfooter", "{$templatePath}/navfooter.php");
@@ -26,8 +27,5 @@ $templates->set("toc", "{$templatePath}/toc.php");
 <!DOCTYPE html>
 <html>
     <?= $this->render("head"); ?>
-
-    <div class="page-wrapper">
-        <?= $this->render("body"); ?>
-    </div>
+    <?= $this->render("body"); ?>
 </html>
