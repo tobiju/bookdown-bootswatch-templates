@@ -1,22 +1,33 @@
 <?php
+/**
+ * tobiju
+ *
+ * @link      https://github.com/tobiju/bookdown-bootswatch-templates for the canonical source repository
+ * @copyright Copyright (c) 2015 Tobias Jüschke
+ * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
+ */
+
 // default library templates
 $library = (getenv('VENDOR_PATH') ?: dirname(dirname(dirname(__DIR__))).'/') . "bookdown/bookdown/templates";
 
 // project-specific templates
-$template_path = __DIR__;
+$templatePath = __DIR__;
 
 // register the templates
 $templates = $this->getViewRegistry();
 
-$templates->set("head", "{$template_path}/head.php");
+$templates->set("head", "{$templatePath}/head.php");
 $templates->set("body", "{$library}/body.php");
 $templates->set("core", "{$library}/core.php");
-$templates->set("navheader", "{$template_path}/navheader.php");
-$templates->set("navfooter", "{$template_path}/navfooter.php");
-$templates->set("toc", "{$template_path}/toc.php");
+$templates->set("navheader", "{$templatePath}/navheader.php");
+$templates->set("navfooter", "{$templatePath}/navfooter.php");
+$templates->set("toc", "{$templatePath}/toc.php");
 ?>
 <!DOCTYPE html>
 <html>
-    <?= $this->render("head", array('theme_name' => $theme_name)); ?>
-    <?= $this->render("body"); ?>
+    <?= $this->render("head"); ?>
+
+    <div class="page-wrapper">
+        <?= $this->render("body"); ?>
+    </div>
 </html>
