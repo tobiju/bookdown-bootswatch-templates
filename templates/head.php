@@ -93,7 +93,11 @@
 
         /* Overide bootsstrap default style */
         table, .table {
+            width: 100%;
             font-size: inherit;
+        }
+        .table-responsive {
+            border: none;
         }
     </style>
 
