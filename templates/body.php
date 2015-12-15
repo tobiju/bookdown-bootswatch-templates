@@ -12,6 +12,6 @@
         <?php echo $this->render('core'); ?>
     </div>
 
-    <script src="http://tobiju.github.io/share/prismjs/main.js"></script>
-    <script src="http://tobiju.github.io/share/prismjs/prism.js"></script>
+    <script src="https://tobiju.github.io/share/prismjs/main.js"></script>
+    <script src="https://tobiju.github.io/share/prismjs/prism.js"></script>
 </body>
