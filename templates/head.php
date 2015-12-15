@@ -19,9 +19,9 @@
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/<?= $cssBootswatch; ?>/bootstrap.min.css">
     <link rel="stylesheet"
-          href="http://tobiju.github.io/share/prismjs/prism-<?= $cssPrism; ?>.css"/>
+          href="https://tobiju.github.io/share/prismjs/prism-<?= $cssPrism; ?>.css"/>
     <link rel="stylesheet"
-          href="http://tobiju.github.io/share/prismjs/prism-linenumbers.css"/>
+          href="https://tobiju.github.io/share/prismjs/prism-linenumbers.css"/>
 
     <style>
         body, html {
