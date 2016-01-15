@@ -13,7 +13,7 @@
 ?>
 
 <h1><?= $this->page->getNumberAndTitle(); ?></h1>
-<table class="table table-striped">
+<ul class="bbt-toc list-group">
     <?php
     $entries = $this->page->getTocEntries();
     $baseLevel = reset($entries)->getLevel();
@@ -23,13 +23,13 @@
     foreach ($entries as $entry) {
         $number = trim($entry->getNumber(),'.');
 
-        echo '<tr>';
-        echo '<td>'."{$number}".'</td>';
-        echo '<td>'. $this->anchorRaw($entry->getHref(), $entry->getTitle()) . '</td>';
-        echo '</tr>';
+        echo '<li class="list-group-item clearfix row">';
+        echo '<div class="col-sm-2">'."{$number}".'</div>';
+        echo '<div class="col-sm-10">'. $this->anchorRaw($entry->getHref(), $entry->getTitle()) . '</div>';
+        echo '</li>';
 
         $lastLevel = $entry->getLevel();
     }
 
     ?>
-</table>
+</ul>
