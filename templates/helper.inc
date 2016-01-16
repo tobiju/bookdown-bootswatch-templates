@@ -3,10 +3,10 @@
   /**
    * Render a nested list of elements as HTML list item. The function calls itself in case
    * of nested elements (identified by the key 'nested').
-   * @param  array  $elements The list of elements
-   * @param  object $context
+   * @param  array          $elements
+   * @param  Aura\View\View $context
    */
-  function renderTocList($elements, $context) {
+  function renderTocList(array $elements, Aura\View\View $context) {
 
       foreach ($elements as $entry) {
           echo '<li class="list-group-item">';
@@ -25,7 +25,13 @@
       }
   }
 
-  function tocEntriestoNestedList($entries, $nestLevel) {
+  /**
+   * Transform a flat list of TOC entries to a nested list of arrays.
+   * @param  array  $entries
+   * @param  int    $nestLevel Level when to start sublist
+   * @return array
+   */
+  function tocEntriestoNestedList(array $entries, $nestLevel) {
     $nestedEntries = array();
     while ($entry = next($entries)) {
         if ($entry->getLevel() <= $nestLevel) {
