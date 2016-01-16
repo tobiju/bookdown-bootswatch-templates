@@ -15,7 +15,7 @@ if (!$this->page->hasTocEntries()) {
  * Define on which level a collapsible sublist will be created.
  * @var integer
  */
-$sublistLevelThrottle = 3;
+$sublistLevelThrottle = getenv('TOC_SUBLIST_LEVEL') ?: 3;
 
 // We need to define functions in a separate file because Bookdown includes
 // this file multiple times.

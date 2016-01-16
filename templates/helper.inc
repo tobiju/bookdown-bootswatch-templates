@@ -32,6 +32,7 @@
    * @return array
    */
   function tocEntriestoNestedList(array $entries, $nestLevel) {
+    $nestLevel = (int) $nestLevel;
     $nestedEntries = array();
     while ($entry = next($entries)) {
         if ($entry->getLevel() <= $nestLevel) {
