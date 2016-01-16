@@ -22,6 +22,10 @@
           href="https://tobiju.github.io/share/prismjs/prism-<?= $cssPrism; ?>.css"/>
     <link rel="stylesheet"
           href="https://tobiju.github.io/share/prismjs/prism-linenumbers.css"/>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
 
     <style>
         body, html {
@@ -68,6 +72,61 @@
             text-align: right;
         }
 
+        /* TOC */
+        .bbt-toc .list-group-item {
+            background: 0 none;
+            position: relative;
+            font-weight: bold;
+            padding: 0;
+        }
+
+        .bbt-toc .list-group-item .row {
+            padding: 7px 0;
+        }
+
+        .bbt-toc .bbt-toc-nested-list .list-group-item {
+            font-weight: normal;
+            border: 0 none !important;
+        }
+
+        .bbt-toc .bbt-toc-nested-list {
+            margin-bottom: 0;
+            padding-bottom: 10px;
+        }
+
+        .bbt-toc .list-group-item .bbt-toc-toggle {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-weight: normal;
+        }
+
+        .bbt-toc > li:nth-child(2n+1) {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .bbt-theme-cyborg .bbt-toc > li:nth-child(2n+1),
+        .bbt-theme-darkly .bbt-toc > li:nth-child(2n+1),
+        .bbt-theme-slate .bbt-toc > li:nth-child(2n+1),
+        .bbt-theme-superhero .bbt-toc > li:nth-child(2n+1) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .bbt-toc .list-group-item {
+            border-bottom: 0 none;
+            border-left: 0 none;
+            border-right: 0 none;
+            font-size: inherit;
+        }
+
+        .bbt-toc .list-group-item:first-child {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+        .bbt-toc .list-group-item:last-child {
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
 
         /* Footer Section */
         footer {
@@ -92,10 +151,6 @@
             color: white;
         }
 
-        /* Overide bootsstrap default style */
-        table, .table {
-            font-size: inherit;
-        }
     </style>
 
 </head>
