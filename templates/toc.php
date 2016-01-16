@@ -7,29 +7,27 @@
  * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
  */
 
-    if (!$this->page->hasTocEntries()) {
-        return;
-    }
+if (!$this->page->hasTocEntries()) {
+    return;
+}
+
+/**
+ * Define on which level a collapsible sublist will be created.
+ * @var integer
+ */
+$sublistLevelThrottle = getenv('TOC_SUBLIST_LEVEL') ?: 3;
+
+// We need to define functions in a separate file because Bookdown includes
+// this file multiple times.
+include_once __DIR__ . '/helper.php';
+
 ?>
 
 <h1><?= $this->page->getNumberAndTitle(); ?></h1>
-<table class="table table-striped">
-    <?php
+<ul class="list-toc list-group">
+<?php
     $entries = $this->page->getTocEntries();
-    $baseLevel = reset($entries)->getLevel();
-    $lastLevel = $baseLevel;
-    $currLevel = $lastLevel;
-
-    foreach ($entries as $entry) {
-        $number = trim($entry->getNumber(),'.');
-
-        echo '<tr>';
-        echo '<td>'."{$number}".'</td>';
-        echo '<td>'. $this->anchorRaw($entry->getHref(), $entry->getTitle()) . '</td>';
-        echo '</tr>';
-
-        $lastLevel = $entry->getLevel();
-    }
-
-    ?>
-</table>
+    $nestedEntries = tocEntriesToNestedList($entries, $sublistLevelThrottle);
+    renderTocList($nestedEntries, $this);
+?>
+</ul>

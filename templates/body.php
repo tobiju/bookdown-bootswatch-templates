@@ -6,8 +6,11 @@
  * @copyright Copyright (c) 2015 Tobias Jüschke
  * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
  */
+
+  $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
+
 ?>
-<body>
+<body class="bbt-theme-<?php echo $cssBootswatch; ?>">
     <div class="page-wrapper">
         <?php echo $this->render('core'); ?>
     </div>
