@@ -27,7 +27,7 @@ include_once __DIR__ . '/helper.inc';
 <ul class="bbt-toc list-group">
 <?php
     $entries = $this->page->getTocEntries();
-    $nestedEntries = tocEntriestoNestedList($entries, $sublistLevelThrottle);
+    $nestedEntries = tocEntriesToNestedList($entries, $sublistLevelThrottle);
     renderTocList($nestedEntries, $this);
 ?>
 </ul>

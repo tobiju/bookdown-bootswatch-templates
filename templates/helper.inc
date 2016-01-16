@@ -32,10 +32,11 @@ function renderTocList(array $elements, Aura\View\View $context)
  * @param  int    $nestLevel Level when to start sublist
  * @return array
  */
-function tocEntriestoNestedList(array $entries, $nestLevel)
+function tocEntriesToNestedList(array $entries, $nestLevel)
 {
     $nestLevel = (int) $nestLevel;
     $nestedEntries = array();
+    $nestedEntries[] = reset($entries)->asArray();
     while ($entry = next($entries)) {
         if ($entry->getLevel() <= $nestLevel) {
             $nestedEntries[] = $entry->asArray();
