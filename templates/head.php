@@ -67,7 +67,6 @@
             text-align: right;
         }
 
-
         /* Footer Section */
         footer {
             color: black;
@@ -96,9 +95,37 @@
             width: 100%;
             font-size: inherit;
         }
+
         .table-responsive {
             border: none;
         }
+
+        /* Toc style */
+        .nav-toc {
+            line-height: 1.6em;
+        }
+
+        .nav-toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .nav-toc ul li ul {
+            list-style: none;
+            padding-left: 22px;
+        }
+
+        .nav-toc ul li ul li ul {
+            list-style: none;
+            padding-left: 38px;
+        }
+
+        .nav-toc ul li ul li ul li ul {
+            list-style: none;
+            padding-left: 54px;
+        }
+
+
     </style>
 
 </head>

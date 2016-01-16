@@ -1,35 +1,48 @@
-<?php
-/**
- * tobiju
- *
- * @link      https://github.com/tobiju/bookdown-bootswatch-templates for the canonical source repository
- * @copyright Copyright (c) 2015 Tobias Jüschke
- * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
- */
+<?php if (!$this->page->hasTocEntries()) : ?>
+    return;
+<?php endif; ?>
 
-    if (!$this->page->hasTocEntries()) {
-        return;
-    }
-?>
+<h1><?php echo $this->page->getNumberAndTitle(); ?></h1>
+<nav class="nav-toc">
+    <ul>
+        <?php
+        $entries = $this->page->getTocEntries();
+        $baseLevel = reset($entries)->getLevel();
+        $lastLevel = $baseLevel;
+        $currLevel = $lastLevel;
+        $finalLevel = 0;
 
-<h1><?= $this->page->getNumberAndTitle(); ?></h1>
-<table class="table table-striped">
-    <?php
-    $entries = $this->page->getTocEntries();
-    $baseLevel = reset($entries)->getLevel();
-    $lastLevel = $baseLevel;
-    $currLevel = $lastLevel;
+        // Get deepest level
+        foreach ($entries as $entry) {
+            if ($entry->getLevel() > $finalLevel) {
+                $finalLevel++;
+            }
+        }
 
-    foreach ($entries as $entry) {
-        $number = trim($entry->getNumber(),'.');
+        foreach ($entries as $entry) {
 
-        echo '<tr>';
-        echo '<td>'."{$number}".'</td>';
-        echo '<td>'. $this->anchorRaw($entry->getHref(), $entry->getTitle()) . '</td>';
-        echo '</tr>';
+            while ($entry->getLevel() > $currLevel) {
+                echo '<ul>' . PHP_EOL;
+                $currLevel++;
+            }
 
-        $lastLevel = $entry->getLevel();
-    }
+            while ($entry->getLevel() < $currLevel) {
+                $currLevel--;
+                echo '</ul></li>' . PHP_EOL;
+            }
 
-    ?>
-</table>
+            echo '<li>' . "{$entry->getNumber()}" . ' ' . $this->anchorRaw($entry->getHref(), $entry->getTitle());
+
+            if ($entry->getLevel() === $finalLevel) {
+                echo '</li >' . PHP_EOL;
+            }
+
+        }
+
+        while ($currLevel > $baseLevel) {
+            $currLevel--;
+            echo '</ul ></li >' . PHP_EOL;
+        }
+        ?>
+    </ul>
+</nav>
