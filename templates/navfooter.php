@@ -22,11 +22,6 @@ if (!($copyright = $this->page->getCopyright())) {
 }
 ?>
 <footer>
-    <div class="links">
-        <div class="container">
-            <?= $this->render("nav"); ?>
-        </div>
-    </div>
     <div id="copyright">
         <div class="container">
             <div class="row">

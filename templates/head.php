@@ -153,6 +153,34 @@
             color: white;
         }
 
+        /* Top Navigation */
+        ul.navbar-nav li {
+            display: block;
+            position: relative;
+            float: left;
+        }
+
+        ul.navbar-nav li ul {
+            display: none;
+        }
+
+        ul.navbar-nav li a {
+            display: block;
+        }
+
+        ul.navbar-nav li:hover > ul {
+            display: block;
+            position: absolute;
+        }
+
+        ul.navbar-nav li:hover li {
+            float: none;
+        }
+
+        ul.navbar-nav ul ul {
+            left: 100%;
+            top: -7px;
+        }
     </style>
     <?= $this->render("meta"); ?>
 </head>

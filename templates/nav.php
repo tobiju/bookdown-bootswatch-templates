@@ -7,43 +7,32 @@
  * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
  */
 
-$prev = $this->page->getPrev();
-$parent = $this->page->getParent();
-$next = $this->page->getNext();
 ?>
-<div class="row hidden-sm hidden-md hidden-lg">
-    <div class="prev col-xs-6">
-        <?php if ($prev): ?>
-            <p>Prev</p>
-            <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-    <div class="next col-xs-6">
-        <?php if ($next): ?>
-            <p>Next</p>
-            <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-</div>
 
-<div class="row hidden-xs">
-    <div class="prev col-sm-4">
-        <?php if ($prev): ?>
-            <p>Prev</p>
-            <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-    <div class="parent col-sm-4">
-        <?php if ($parent): ?>
-            <p>Up</p>
-            <?= $this->anchorRaw($parent->getHref(), $parent->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-    <div class="next col-sm-4">
-        <?php if ($next): ?>
-            <p>Next</p>
-            <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-</div>
+<?php
 
+$page = $this->page;
+
+while($page->hasParent()){
+    $page = $page->getParent();
+}
+
+?>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <?php menu($page, $this); ?>
+        </div>
+    </div>
+</nav>

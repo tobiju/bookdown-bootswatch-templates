@@ -16,11 +16,6 @@ if (!$this->page->hasTocEntries()) {
  * @var integer
  */
 $sublistLevelThrottle = getenv('TOC_SUBLIST_LEVEL') ?: 3;
-
-// We need to define functions in a separate file because Bookdown includes
-// this file multiple times.
-include_once __DIR__ . '/helper.php';
-
 ?>
 
 <h1><?= $this->page->getNumberAndTitle(); ?></h1>
