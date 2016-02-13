@@ -17,6 +17,7 @@ $templatePath = __DIR__;
 $templates = $this->getViewRegistry();
 
 $templates->set("head", "{$templatePath}/head.php");
+$templates->set("meta", "{$templatePath}/meta.php");
 $templates->set("body", "{$templatePath}/body.php");
 $templates->set("nav", "{$templatePath}/nav.php");
 $templates->set("core", "{$library}/core.php");
