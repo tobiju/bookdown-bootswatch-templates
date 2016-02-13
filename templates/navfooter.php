@@ -16,7 +16,11 @@ $next = $this->page->getNext();
 </div>
 </div>
 </section>
-
+<?php
+if (!($copyright = $this->page->getCopyright())) {
+    $copyright = 'Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.';
+}
+?>
 <footer>
     <div class="links">
         <div class="container">
@@ -27,9 +31,7 @@ $next = $this->page->getNext();
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>
-                        Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.
-                    </p>
+                    <p><?= $copyright; ?></p>
                 </div>
             </div>
         </div>
