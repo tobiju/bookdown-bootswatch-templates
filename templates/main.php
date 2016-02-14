@@ -7,6 +7,12 @@
  * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
  */
 
+
+// We need to define functions in a separate file because Bookdown includes
+// this file multiple times.
+include_once __DIR__ . '/helper.php';
+
+
 // default library templates
 $library = (getenv('VENDOR_PATH') ?: dirname(dirname(dirname(__DIR__))).'/') . "bookdown/bookdown/templates";
 
@@ -24,6 +30,7 @@ $templates->set("core", "{$library}/core.php");
 $templates->set("navheader", "{$templatePath}/navheader.php");
 $templates->set("navfooter", "{$templatePath}/navfooter.php");
 $templates->set("toc", "{$templatePath}/toc.php");
+$templates->set("partialTopNav", "{$templatePath}/partial/topNav.php");
 ?>
 <!DOCTYPE html>
 <html>

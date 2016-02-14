@@ -7,8 +7,8 @@
  * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
  */
 
-    $cssPrism = getenv('CSS_PRISM') ?: 'ghcolors';
-    $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
+$cssPrism = getenv('CSS_PRISM') ?: 'ghcolors';
+$cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 ?>
 <head>
     <meta charset="utf-8"/>
@@ -25,11 +25,12 @@
     <style>
         body, html {
             height: 100%;
+            padding-top: 30px;
         }
 
         .page-wrapper {
             min-height: 100%;
-            padding-bottom: 204px;
+            padding-bottom: 170px;
             position: relative;
         }
 
@@ -78,9 +79,11 @@
         .list-toc .list-group-item .row {
             padding: 7px 0;
         }
+
         .list-toc .list-group-item .text-number {
             padding-left: 10px;
         }
+
         .list-toc .list-toc-nested .list-group-item {
             font-weight: normal;
             border: 0 none !important;
@@ -120,6 +123,7 @@
             border-top-right-radius: 0;
             border-top-left-radius: 0;
         }
+
         .list-toc .list-group-item:last-child {
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
@@ -153,6 +157,67 @@
             color: white;
         }
 
+        /* Top Navigation */
+        @media (max-width: 767px) {
+            ul.navbar-nav {
+                margin: 0 -15px
+            }
+
+            ul.navbar-nav li {
+                border-radius: 0;
+            }
+
+            ul.navbar-nav li ul {
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                display: block;
+                float: none;
+                left: auto;
+                padding: 0;
+                position: static;
+            }
+
+            ul.navbar-nav li ul li a {
+                padding: 8px 30px;
+            }
+
+            ul.navbar-nav li ul li ul li a {
+                padding: 6px 40px;
+            }
+        }
+
+        @media (min-width: 768px) {
+
+            ul.navbar-nav li {
+                display: block;
+                position: relative;
+                float: left;
+            }
+
+            ul.navbar-nav li ul {
+                display: none;
+            }
+
+            ul.navbar-nav li a {
+                display: block;
+            }
+
+            ul.navbar-nav li:hover > ul {
+                display: block;
+                position: absolute;
+            }
+
+            ul.navbar-nav li:hover li {
+                float: none;
+            }
+
+            ul.navbar-nav ul ul {
+                left: 100%;
+                top: -7px;
+            }
+        }
     </style>
     <?= $this->render("meta"); ?>
 </head>
