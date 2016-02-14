@@ -65,7 +65,7 @@ function menu($page, Aura\View\View $context, $depth = 0, $maxDepth = 3)
     $depth++;
 
     if (!($page instanceof \Bookdown\Bookdown\Content\RootPage)) {
-        echo "<li>";
+        echo '<li>';
         echo $context->anchorRaw($page->getHref(), $page->getTitle());
     }
 
@@ -74,6 +74,7 @@ function menu($page, Aura\View\View $context, $depth = 0, $maxDepth = 3)
         && $depth <= $maxDepth
     ) {
         $class = ($depth == 1) ? 'nav navbar-nav' : 'dropdown-menu';
+
         echo '<ul class="' . $class . '">';
         foreach ($page->getChildren() as $child) {
             menu($child, $context, $depth);
