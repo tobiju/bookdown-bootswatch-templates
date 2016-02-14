@@ -30,6 +30,7 @@ $templates->set("core", "{$library}/core.php");
 $templates->set("navheader", "{$templatePath}/navheader.php");
 $templates->set("navfooter", "{$templatePath}/navfooter.php");
 $templates->set("toc", "{$templatePath}/toc.php");
+$templates->set("partialTopNav", "{$templatePath}/partial/topNav.php");
 ?>
 <!DOCTYPE html>
 <html>

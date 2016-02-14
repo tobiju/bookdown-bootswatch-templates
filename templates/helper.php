@@ -51,38 +51,3 @@ function tocEntriesToNestedList(array $entries, $nestLevel)
     }
     return $nestedEntries;
 }
-
-/**
- * Renders the list for the top menu.
- *
- * @param $page
- * @param \Aura\View\View $context
- * @param int $depth
- * @param int $maxDepth
- */
-function menu($page, Aura\View\View $context, $depth = 0, $maxDepth = 3)
-{
-    $depth++;
-
-    if (!($page instanceof \Bookdown\Bookdown\Content\RootPage)) {
-        echo '<li>';
-        echo $context->anchorRaw($page->getHref(), $page->getTitle());
-    }
-
-    if ($page instanceof \Bookdown\Bookdown\Content\IndexPage
-        && count($page->getChildren()) > 0
-        && $depth <= $maxDepth
-    ) {
-        $class = ($depth == 1) ? 'nav navbar-nav' : 'dropdown-menu';
-
-        echo '<ul class="' . $class . '">';
-        foreach ($page->getChildren() as $child) {
-            menu($child, $context, $depth);
-        }
-        echo '</ul>';
-    }
-
-    if (!($page instanceof \Bookdown\Bookdown\Content\RootPage)) {
-        echo '</li>';
-    }
-}

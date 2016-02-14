@@ -13,7 +13,7 @@
 
 $page = $this->page;
 
-while($page->hasParent()){
+while ($page->hasParent()) {
     $page = $page->getParent();
 }
 
@@ -32,7 +32,10 @@ while($page->hasParent()){
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <?php menu($page, $this); ?>
+            <?= $this->render('partialTopNav', array(
+                'page' => $page,
+                'depth' => 0
+            )); ?>
         </div>
     </div>
 </nav>

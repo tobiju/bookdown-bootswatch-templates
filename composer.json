@@ -14,12 +14,6 @@
     "static site",
     "docs"
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/sandrokeil/Bookdown.Bookdown"
-    }
-  ],
   "homepage": "https://github.com/tobiju/bookdown-bootswatch-templates",
   "license": "BSD-3-Clause",
   "authors": [
@@ -29,7 +23,7 @@
     }
   ],
   "require": {
-    "bookdown/bookdown": "dev-menu"
+    "bookdown/bookdown": "dev-develop"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
