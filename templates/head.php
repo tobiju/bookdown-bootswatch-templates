@@ -25,11 +25,12 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
     <style>
         body, html {
             height: 100%;
+            padding-top: 30px;
         }
 
         .page-wrapper {
             min-height: 100%;
-            padding-bottom: 204px;
+            padding-bottom: 170px;
             position: relative;
         }
 

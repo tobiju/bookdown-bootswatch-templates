@@ -63,6 +63,10 @@ Visit [prismjs.com](http://prismjs.com/) / [prism-styles](https://github.com/Pri
 * pojoaque
 * xonokai
 
+## Top menu logo
+To add an individual logo instead of displaying *Home* you can set the environment variable `MENU_LOGO` which must be
+an absolute URI to an image.
+
 ## Generate Documentation
 
 > Change the path to your bookdown.json file.

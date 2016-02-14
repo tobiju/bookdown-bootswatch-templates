@@ -10,18 +10,32 @@
 $prev = $this->page->getPrev();
 $parent = $this->page->getParent();
 $next = $this->page->getNext();
-?>
 
-</div>
-</div>
-</div>
-</section>
-<?php
 if (!($copyright = $this->page->getCopyright())) {
     $copyright = 'Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.';
 }
 ?>
+</div>
+</div>
+</div>
+</section>
 <footer>
+    <div class="links">
+        <div class="container">
+            <div class="row">
+                <div class="prev col-xs-6">
+                    <?php if ($prev): ?>
+                        <?= $this->anchorRaw($prev->getHref(), 'Previous'); ?>
+                    <?php endif; ?>
+                </div>
+                <div class="next col-xs-6">
+                    <?php if ($next): ?>
+                        <?= $this->anchorRaw($next->getHref(), 'Next'); ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="copyright">
         <div class="container">
             <div class="row">

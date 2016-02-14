@@ -7,10 +7,7 @@
  * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
  */
 
-?>
-
-<?php
-
+/* @var $page \Bookdown\Bookdown\Content\Page */
 $page = $this->page;
 
 while ($page->hasParent()) {
@@ -18,8 +15,8 @@ while ($page->hasParent()) {
 }
 
 ?>
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -28,7 +25,15 @@ while ($page->hasParent()) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="<?= $page->getHref(); ?>">
+                <?php
+                if ($image = getenv('MENU_LOGO')) {
+                    echo '<img alt="logo" src="' . $image . '" title="Home">';
+                } else {
+                    echo 'Home';
+                }
+                ?>
+            </a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

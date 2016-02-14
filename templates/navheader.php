@@ -13,16 +13,7 @@ $next = $this->page->getNext();
 ?>
 
 <header>
-    <div class="container">
-        <h3 class="title text-center">
-            <?= $this->page->getNumberAndTitle(); ?>
-        </h3>
-    </div>
-    <div class="links">
-        <div class="container">
-            <?= $this->render("nav"); ?>
-        </div>
-    </div>
+    <?= $this->render("nav"); ?>
 </header>
 
 <section id="content">
