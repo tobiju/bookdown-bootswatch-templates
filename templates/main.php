@@ -32,6 +32,7 @@ $templates->set("navfooter", "{$templatePath}/navfooter.php");
 $templates->set("toc", "{$templatePath}/toc.php");
 $templates->set("partialTopNav", "{$templatePath}/partial/topNav.php");
 $templates->set("partialBreadcrumb", "{$templatePath}/partial/breadcrumb.php");
+$templates->set("partialSideNav", "{$templatePath}/partial/sideNav.php");
 ?>
 <!DOCTYPE html>
 <html>

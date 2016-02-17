@@ -26,6 +26,7 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
         body, html {
             height: 100%;
             padding-top: 30px;
+            position: relative;
         }
 
         .page-wrapper {
@@ -41,7 +42,7 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             font-size: 16px;
             font-weight: 300;
         }
-        
+
         .navbar-brand img {
             max-height: 100%;
         }
