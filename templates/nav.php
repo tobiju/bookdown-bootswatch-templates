@@ -25,15 +25,11 @@ while ($page->hasParent()) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?= $page->getHref(); ?>">
-                <?php
-                if ($image = getenv('MENU_LOGO')) {
-                    echo '<img alt="logo" src="' . $image . '" title="Home">';
-                } else {
-                    echo 'Home';
-                }
-                ?>
-            </a>
+            <?php if ($image = getenv('MENU_LOGO')) : ?>
+                <a class="navbar-brand" href="<?= $page->getHref(); ?>">
+                    <img alt="logo" src="<?= $image ?>" title="Home">'
+                </a>
+            <?php endif; ?>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
