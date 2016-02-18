@@ -20,4 +20,4 @@ $next = $this->page->getNext();
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
+                <?= $this->render("partialBreadcrumb"); ?>
