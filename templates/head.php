@@ -41,7 +41,11 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             font-size: 16px;
             font-weight: 300;
         }
-        
+
+        .navbar-brand {
+            padding: 0;
+        }
+
         .navbar-brand img {
             max-height: 100%;
         }
