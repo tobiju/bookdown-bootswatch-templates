@@ -26,10 +26,9 @@ if ($useSideMenu = !($this->page instanceof IndexPage || $this->page instanceof 
 
 <section id="content">
     <div class="container">
+        <?= $this->render("partialBreadcrumb"); ?>
         <div class="row">
-            <div class="col-md-12">
-                <?= $this->render("partialBreadcrumb"); ?>
-            </div>
+
             <?php if ($useSideMenu) : ?>
             <div class="col-md-3">
                 <?= $this->render("partialSideNav"); ?>

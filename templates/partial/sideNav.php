@@ -13,12 +13,12 @@ if ($this->page instanceof \Bookdown\Bookdown\Content\IndexPage) {
     return '';
 }
 ?>
-<div id="sideNav">
-    <ul class="nav nav-pills nav-stacked" role="tablist">
+<nav class="nav-left hidden-xs hidden-sm" id="sideNav">
+    <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
         <?php foreach ($this->page->getHeadings() as $entry) : ?>
             <li>
-                <?= $this->anchorRaw('#' . substr($entry->getNumber(), 0, -1), $entry->getTitle()); ?>
+                <a href="<?= $entry->getHrefAnchor() ?>"><?= $entry->getTitle(); ?></a>
             </li>
         <?php endforeach; ?>
     </ul>
-</div>
+</nav>

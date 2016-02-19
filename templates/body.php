@@ -20,7 +20,4 @@
             crossorigin="anonymous"></script>
     <script src="https://tobiju.github.io/share/prismjs/main.js"></script>
     <script src="https://tobiju.github.io/share/prismjs/prism.js"></script>
-    <script type="text/javascript">
-        $('body').scrollspy({ target: '#sideNav' })
-    </script>
 </body>
