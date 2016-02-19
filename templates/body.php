@@ -10,7 +10,7 @@
   $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 
 ?>
-<body class="bbt-theme-<?php echo $cssBootswatch; ?>">
+<body data-spy="scroll" data-target="#sideNav" data-offset="50" class="bbt-theme-<?php echo $cssBootswatch; ?>">
     <div class="page-wrapper">
         <?php echo $this->render('core'); ?>
     </div>

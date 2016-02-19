@@ -26,6 +26,7 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
         body, html {
             height: 100%;
             padding-top: 30px;
+            position: relative;
         }
 
         .page-wrapper {
@@ -40,6 +41,10 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             color: black;
             font-size: 16px;
             font-weight: 300;
+        }
+
+        h1:first-child {
+            margin-top: 0;
         }
 
         .navbar-brand {
@@ -135,6 +140,16 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
         .list-toc .list-group-item:last-child {
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
+        }
+
+        /* Left navigation */
+        .nav-left ul li a {
+            padding-top:4px;
+            padding-bottom: 4px;
+        }
+
+        .affix {
+            top: 60px;
         }
 
         .badge {
