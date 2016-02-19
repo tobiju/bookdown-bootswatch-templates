@@ -16,8 +16,17 @@ if ($this->page instanceof \Bookdown\Bookdown\Content\IndexPage) {
 <nav class="nav-left hidden-xs hidden-sm" id="sideNav">
     <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
         <?php foreach ($this->page->getHeadings() as $entry) : ?>
+
+            <?php
+            $maxStingLength = 24;
+            $title = $entry->getTitle();
+            if (strlen($title) > $maxStingLength) {
+                $title = substr($title, 0, $maxStingLength) . '...';
+            }
+            ?>
+
             <li>
-                <a href="<?= $entry->getHrefAnchor() ?>"><?= $entry->getTitle(); ?></a>
+                <a href="<?= $entry->getHrefAnchor() ?>"><?= $title; ?></a>
             </li>
         <?php endforeach; ?>
     </ul>
