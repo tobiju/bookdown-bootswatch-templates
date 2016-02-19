@@ -27,7 +27,7 @@ while ($page->hasParent()) {
             </button>
             <?php if ($image = getenv('MENU_LOGO')) : ?>
                 <a class="navbar-brand" href="<?= $page->getHref(); ?>">
-                    <img alt="logo" src="<?= $image ?>" title="Home">'
+                    <img alt="logo" src="<?= $image ?>" title="Home">
                 </a>
             <?php endif; ?>
         </div>
