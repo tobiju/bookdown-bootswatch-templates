@@ -24,14 +24,14 @@ if ($useSideMenu = !($this->page instanceof IndexPage || $this->page instanceof 
     <?= $this->render("nav"); ?>
 </header>
 
-<section id="content">
-    <div class="container">
-        <?= $this->render("partialBreadcrumb"); ?>
-        <div class="row">
 
-            <?php if ($useSideMenu) : ?>
-            <div class="col-md-3">
-                <?= $this->render("partialSideNav"); ?>
-            </div>
-            <?php endif; ?>
-            <div class="col-md-<?= $col; ?>">
+<div class="container">
+    <?= $this->render("partialBreadcrumb"); ?>
+    <div class="row">
+
+        <?php if ($useSideMenu) : ?>
+        <div class="col-md-3">
+            <?= $this->render("partialSideNav"); ?>
+        </div>
+        <?php endif; ?>
+        <div class="col-md-<?= $col; ?>">

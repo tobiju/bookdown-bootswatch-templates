@@ -15,10 +15,10 @@ if (!($copyright = $this->page->getCopyright())) {
     $copyright = 'Powered by <a href="https://github.com/tobiju/bookdown-bootswatch-templates" title="Visit project to generate your own docs">Bookdown Bootswatch Templates</a>.';
 }
 ?>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-</section>
+
 <footer>
     <div class="links">
         <div class="container">
