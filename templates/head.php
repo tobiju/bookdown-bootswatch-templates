@@ -25,7 +25,7 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
     <style>
         body, html {
             height: 100%;
-            padding-top: 30px;
+            padding-top: 36px;
             position: relative;
         }
 
@@ -47,6 +47,20 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             margin-top: 0;
         }
 
+        /* anchor link will be displayed after the static top nav */
+        h1:before,
+        h2:before,
+        h3:before,
+        h4:before,
+        h5:before,
+        h6:before {
+            display: block;
+            content: " ";
+            margin-top: -64px;
+            height: 64px;
+            visibility: hidden;
+        }
+
         .navbar-brand {
             padding: 0;
         }
@@ -60,6 +74,11 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             margin-bottom: 17px;
             font-size: 17px;
             min-height: 200px;
+        }
+
+        .breadcrumb {
+            position: relative;
+            z-index: 999;
         }
 
         .links {
@@ -144,8 +163,15 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 
         /* Left navigation */
         .nav-left ul li a {
-            padding-top:4px;
-            padding-bottom: 4px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            border-left: 1px solid transparent;
+        }
+        .nav-left ul li.active a,
+        .nav-left ul li a:hover {
+            background: none !important;
+            color: inherit;
+            border-color: inherit;
         }
 
         .affix {
@@ -238,7 +264,7 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 
             ul.navbar-nav ul ul {
                 left: 100%;
-                top: -7px;
+                top: 0;
             }
         }
     </style>

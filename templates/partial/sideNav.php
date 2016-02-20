@@ -14,7 +14,7 @@ if ($this->page instanceof \Bookdown\Bookdown\Content\IndexPage) {
 }
 ?>
 <nav class="nav-left hidden-xs hidden-sm" id="sideNav">
-    <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
+    <ul class="nav nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
         <?php foreach ($this->page->getHeadings() as $entry) : ?>
 
             <?php
