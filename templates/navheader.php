@@ -23,8 +23,6 @@ if ($useSideMenu = !($this->page instanceof IndexPage || $this->page instanceof 
 <header>
     <?= $this->render("nav"); ?>
 </header>
-
-
 <div class="container">
     <?= $this->render("partialBreadcrumb"); ?>
     <div class="row">

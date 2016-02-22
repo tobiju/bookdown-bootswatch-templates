@@ -13,7 +13,6 @@
 $depth++;
 $maxDepth = 3;
 ?>
-
 <?php if (!($page instanceof \Bookdown\Bookdown\Content\RootPage)): ?>
     <li>
     <?= $this->anchorRaw($page->getHref(), $page->getTitle()); ?>
@@ -39,10 +38,3 @@ $maxDepth = 3;
 <?php if (!($page instanceof \Bookdown\Bookdown\Content\RootPage)): ?>
     </li>
 <?php endif; ?>
-
-
-
-
-
-
-
