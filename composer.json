@@ -22,14 +22,8 @@
       "homepage": "https://github.com/tobiju/bookdown-bootswatch-templates/contributors"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/tobiju/Bookdown.Bookdown.git"
-    }
-  ],
   "require": {
-    "bookdown/bookdown": "dev-AddValidHeadingDomIds"
+    "bookdown/bookdown": "dev-develop"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
