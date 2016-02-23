@@ -12,13 +12,19 @@
 if ($this->page instanceof \Bookdown\Bookdown\Content\IndexPage) {
     return '';
 }
+$startLevel = 0;
 ?>
 <nav class="nav-left hidden-xs hidden-sm" id="sideNav">
     <ul class="nav nav-stacked" data-spy="affix" data-offset-top="59" role="tablist">
         <?php foreach ($this->page->getHeadings() as $entry) : ?>
             <?php
+            // store level from first entry
+            if ($startLevel === 0) {
+                $startLevel = $entry->getLevel();
+            }
+
             // allow only headings until depth 2
-            if ($entry->getLevel() > 3) {
+            if (($entry->getLevel() - $startLevel) > 3) {
                 continue;
             }
 
