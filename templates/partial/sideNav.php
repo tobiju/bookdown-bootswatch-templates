@@ -24,7 +24,7 @@ $startLevel = 0;
             }
 
             // allow only headings until depth 2
-            if (($entry->getLevel() - $startLevel) > 3) {
+            if (($entry->getLevel() - $startLevel) > 1) {
                 continue;
             }
 

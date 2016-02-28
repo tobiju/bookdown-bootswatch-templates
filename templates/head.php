@@ -127,10 +127,19 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
         }
 
         .list-toc .list-group-item .bbt-toc-toggle {
+            display: block;
             position: absolute;
             top: 5px;
             right: 10px;
             font-weight: normal;
+        }
+        .list-toc .list-group-item .bbt-toc-toggle:before {
+            content: "";
+            display: block;
+        }
+        .list-toc .list-group-item .bbt-toc-toggle.collapsed:before {
+            content: "";
+            display: block;
         }
 
         .list-toc > li:nth-child(2n+1) {
@@ -180,7 +189,7 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 
         .badge {
             border-radius: 4px;
-            padding: 5px 8px;
+            padding: 5px;
         }
 
         /* Footer Section */

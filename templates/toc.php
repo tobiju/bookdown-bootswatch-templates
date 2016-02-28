@@ -15,7 +15,7 @@ if (!$this->page->hasTocEntries()) {
  * Define on which level a collapsible sublist will be created.
  * @var integer
  */
-$sublistLevelThrottle = getenv('TOC_SUBLIST_LEVEL') ?: 3;
+$sublistLevelThrottle = getenv('TOC_SUBLIST_LEVEL') ?: 2;
 ?>
 
 <h1><?= $this->page->getNumberAndTitle(); ?></h1>
