@@ -29,6 +29,10 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             position: relative;
         }
 
+        img {
+            max-width: 100%;
+        }
+
         .page-wrapper {
             min-height: 100%;
             padding-bottom: 170px;
