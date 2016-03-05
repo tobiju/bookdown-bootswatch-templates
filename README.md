@@ -4,10 +4,10 @@ If you generate your documentation with [bookdown](http://bookdown.io/) and want
 for your code blocks, then this package come to the rescue :).
 
 ## Installation
-Installation of this library uses composer. For composer documentation, please refer to
+Installation of this library uses Composer. For Composer documentation, please refer to
 [getcomposer.org](http://getcomposer.org/).
 
-Put the following into your composer.json
+Put the following into your `composer.json` or run `composer require tobiju/bookdown-bootswatch-templates`.
 
     {
         "require-dev": {
@@ -15,7 +15,7 @@ Put the following into your composer.json
         }
     }
 
-Put the following into your bookdown.json
+Put the following into your `bookdown.json`
 
 ```
 {
@@ -63,6 +63,10 @@ Visit [prismjs.com](http://prismjs.com/) / [prism-styles](https://github.com/Pri
 * pojoaque
 * xonokai
 
+## Top menu logo
+To add an individual logo instead of displaying *Home* you can set the environment variable `MENU_LOGO` which must be
+an absolute URI to an image.
+
 ## Generate Documentation
 
 > Change the path to your bookdown.json file.
@@ -80,7 +84,7 @@ $ docker run -it --rm -e CSS_BOOTSWATCH=superhero -e CSS_PRISM=coy -v $(pwd):/ap
 $ docker run -it --rm -p 8080:8080 -v $(pwd):/app php:5.6-cli php -S 0.0.0.0:8080 -t /app/doc/html
 ```
 
-or for Bookdown via composer.
+or for Bookdown via Composer.
 
 ```console
 $ export CSS_BOOTSWATCH=superhero && export CSS_PRISM=coy && php ./vendor/bin/bookdown doc/bookdown.json
@@ -88,6 +92,12 @@ $ php -S 0.0.0.0:8080 -t doc/html/
 ```
 
 Then browse to [http://localhost:8080/](http://localhost:8080/)
+
+## Bookdown Bootswatch templates in action
+Here are some documentation examples generated with this Bookdown.io template.
+
+* [prooph components](http://getprooph.org/)
+* [interop-config](http://sandrokeil.github.io/interop-config/)
 
 ## Further Information
 

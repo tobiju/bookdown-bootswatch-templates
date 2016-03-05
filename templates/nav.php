@@ -7,43 +7,36 @@
  * @license   https://github.com/tobiju/bookdown-bootswatch-templates/blob/master/LICENSE.txt New BSD License
  */
 
-$prev = $this->page->getPrev();
-$parent = $this->page->getParent();
-$next = $this->page->getNext();
+/* @var $page \Bookdown\Bookdown\Content\Page */
+$page = $this->page;
+
+while ($page->hasParent()) {
+    $page = $page->getParent();
+}
+
 ?>
-<div class="row hidden-sm hidden-md hidden-lg">
-    <div class="prev col-xs-6">
-        <?php if ($prev): ?>
-            <p>Prev</p>
-            <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-    <div class="next col-xs-6">
-        <?php if ($next): ?>
-            <p>Next</p>
-            <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#js-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <?php if ($image = getenv('MENU_LOGO')) : ?>
+                <a class="navbar-brand" href="<?= $page->getHref(); ?>">
+                    <img alt="logo" src="<?= $image ?>" title="Home">
+                </a>
+            <?php endif; ?>
+        </div>
 
-<div class="row hidden-xs">
-    <div class="prev col-sm-4">
-        <?php if ($prev): ?>
-            <p>Prev</p>
-            <?= $this->anchorRaw($prev->getHref(), $prev->getNumberAndTitle()); ?>
-        <?php endif; ?>
+        <div class="collapse navbar-collapse" id="js-navbar-collapse">
+            <?= $this->render('partialTopNav', array(
+                'page' => $page,
+                'depth' => 0
+            )); ?>
+        </div>
     </div>
-    <div class="parent col-sm-4">
-        <?php if ($parent): ?>
-            <p>Up</p>
-            <?= $this->anchorRaw($parent->getHref(), $parent->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-    <div class="next col-sm-4">
-        <?php if ($next): ?>
-            <p>Next</p>
-            <?= $this->anchorRaw($next->getHref(), $next->getNumberAndTitle()); ?>
-        <?php endif; ?>
-    </div>
-</div>
-
+</nav>
