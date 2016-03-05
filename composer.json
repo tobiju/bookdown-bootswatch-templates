@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "bookdown/bookdown": "dev-develop"
+    "bookdown/bookdown": "^1.0.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
