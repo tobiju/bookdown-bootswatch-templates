@@ -104,33 +104,6 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             text-align: right;
         }
 
-        /* Search */
-        .form-search .form-control {
-            border: 0;
-        }
-
-        .form-search .list-search-results {
-            position: relative;
-        }
-
-        .form-search .list-search-results ul {
-            background: #eee;
-            border: 1px solid inherit;
-            width: 100%;
-            padding: 0;
-            position: absolute;
-            list-style: none;
-        }
-
-        .form-search .list-search-results ul li:nth-child(even) {
-            background: rgba(255, 255, 255, 0.3)
-        }
-
-        .form-search .list-search-results ul li a {
-            display: block;
-            padding: 4px 8px;
-        }
-
         /* TOC */
         .list-toc .list-group-item {
             background: 0 none;
@@ -164,12 +137,10 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             right: 10px;
             font-weight: normal;
         }
-
         .list-toc .list-group-item .bbt-toc-toggle:before {
             content: "";
             display: block;
         }
-
         .list-toc .list-group-item .bbt-toc-toggle.collapsed:before {
             content: "";
             display: block;
@@ -209,7 +180,6 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             padding-bottom: 3px;
             border-left: 1px solid transparent;
         }
-
         .nav-left ul li.active a,
         .nav-left ul li a:hover {
             background: none !important;
