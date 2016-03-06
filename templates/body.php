@@ -43,7 +43,7 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
     });
 
     $(function () {
-        var searchResults = $('.js-search-results');
+        var searchResults = $('.js-search-results').addClass('list-search-results');
 
         $('.js-search-input').keyup(function () {
             var query = $(this).val(),
@@ -54,16 +54,12 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
                 return;
             }
 
-                console.log(store);
             var resultsList = results.reduce(function (ul, result) {
-
                 var item = store[result.ref];
-
                 var li = $('<li>').append($('<a>', {
                     href: item.ref,
                     text: item.title
                 }));
-
                 ul.append(li);
 
                 return ul;

@@ -38,7 +38,7 @@ while ($page->hasParent()) {
                 'depth' => 0
             )); ?>
 
-            <form class="navbar-form navbar-right" role="search">
+            <form class="form-search navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <input type="text" placeholder="Search" class="js-search-input form-control">
                     <div class="js-search-results"></div>
