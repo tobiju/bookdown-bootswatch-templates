@@ -33,6 +33,10 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             max-width: 100%;
         }
 
+        .highlight {
+            background: #FFFF88;
+        }
+
         .page-wrapper {
             min-height: 100%;
             padding-bottom: 170px;

@@ -19,10 +19,21 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/0.6.0/lunr.min.js"></script>
+<script src="http://bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
 <script src="https://tobiju.github.io/share/prismjs/main.js"></script>
 <script src="https://tobiju.github.io/share/prismjs/prism.js"></script>
 <script type="text/javascript">
     $(function () {
+
+        //highlight js
+        $(window).on('hashchange', function () {
+            var locationHash = window.location.hash;
+            console.log(locationHash.replace("#", ""));
+            $("body").highlight(locationHash.replace("#", ""));
+        });
+        $(window).trigger('hashchange');
+
+        //lunr
         var index = lunr(function () {
             this.ref('id');
             this.field('title', {boost: 10});
@@ -55,7 +66,7 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             var resultsList = results.reduce(function (ul, result) {
                 var item = store[result.ref];
                 var li = $('<li>').append($('<a>', {
-                    href: item.ref,
+                    href: item.ref + '#' + query,
                     text: item.title
                 }));
                 ul.append(li);
