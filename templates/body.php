@@ -18,32 +18,30 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/0.6.0/lunr.min.js"></script>
 <script src="https://tobiju.github.io/share/prismjs/main.js"></script>
 <script src="https://tobiju.github.io/share/prismjs/prism.js"></script>
-<script src="https://raw.githubusercontent.com/olivernn/lunr.js/master/lunr.min.js"></script>
 <script type="text/javascript">
-    var index = lunr(function () {
-        this.ref('id');
-        this.field('title', {boost: 10});
-        this.field('body');
-    });
-
-    var store = {};
-
-    $.getJSON("/index.json", function (data) {
-        $.each(data, function (key, item) {
-            index.add({
-                id: item.id,
-                title: item.title,
-                body: item.body
-            });
-
-            store[item.id] = {title: item.title, ref: item.id}
-        });
-    });
-
     $(function () {
+        var index = lunr(function () {
+            this.ref('id');
+            this.field('title', {boost: 10});
+            this.field('body');
+        });
+        var store = {};
         var searchResults = $('.js-search-results').addClass('list-search-results');
+
+        $.getJSON("/index.json", function (data) {
+            $.each(data, function (key, item) {
+                index.add({
+                    id: item.id,
+                    title: item.title,
+                    body: item.body
+                });
+
+                store[item.id] = {title: item.title, ref: item.id}
+            });
+        });
 
         $('.js-search-input').keyup(function () {
             var query = $(this).val(),
