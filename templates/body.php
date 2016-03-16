@@ -22,37 +22,34 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 <script src="http://bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
 <script src="https://tobiju.github.io/share/prismjs/main.js"></script>
 <script src="https://tobiju.github.io/share/prismjs/prism.js"></script>
+<script src="https://raw.githubusercontent.com/olivernn/lunr.js/master/lunr.min.js"></script>
 <script type="text/javascript">
-    $(function () {
+    var index = lunr(function () {
+        this.ref('id');
+        this.field('title', {boost: 10});
+        this.field('content');
+    });
 
-        //highlight js
-        $(window).on('hashchange', function () {
-            var locationHash = window.location.hash;
-            console.log(locationHash.replace("#", ""));
-            $("body").highlight(locationHash.replace("#", ""));
-        });
-        $(window).trigger('hashchange');
+    var store = {};
 
-        //lunr
-        var index = lunr(function () {
-            this.ref('id');
-            this.field('title', {boost: 10});
-            this.field('body');
-        });
-        var store = {};
-        var searchResults = $('.js-search-results').addClass('list-search-results');
-
-        $.getJSON("/index.json", function (data) {
-            $.each(data, function (key, item) {
-                index.add({
-                    id: item.id,
-                    title: item.title,
-                    body: item.body
-                });
-
-                store[item.id] = {title: item.title, ref: item.id}
+    $.getJSON("/index.json", function (data) {
+        $.each(data, function (key, item) {
+            index.add({
+                id: item.id,
+                title: item.title,
+                content: item.content
             });
+
+            store[item.id] = {
+                href: item.id,
+                title: item.title,
+                content: item.content
+            }
         });
+    });
+
+    $(function () {
+        var searchResults = $('.js-search-results').addClass('list-search-results');
 
         $('.js-search-input').keyup(function () {
             var query = $(this).val(),
@@ -65,10 +62,28 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 
             var resultsList = results.reduce(function (ul, result) {
                 var item = store[result.ref];
-                var li = $('<li>').append($('<a>', {
-                    href: item.ref + '#' + query,
-                    text: item.title
-                }));
+
+                var title = $('<b>').text(item.title);
+
+                // TODO: move to function
+                var contentText = item.content;
+                var cropedText = '';
+
+                var re = new RegExp("\\s.{0,10}" + query + ".*?\\b.{0,10}.\\s", "gi");
+
+                $.each(contentText.match(re), function (key, value) {
+                    cropedText += '...' + value + '...';
+                });
+
+                var content = $('<p>').html(cropedText);
+
+                var div = $('<div>')
+                    .append(title)
+                    .append(content);
+                var a = $('<a>').attr('href', item.href)
+                    .append(div);
+                var li = $('<li>')
+                    .append(a);
                 ul.append(li);
 
                 return ul;

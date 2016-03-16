@@ -22,8 +22,14 @@
       "homepage": "https://github.com/tobiju/bookdown-bootswatch-templates/contributors"
     }
   ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/tobiju/Bookdown.Bookdown.git"
+    }
+  ],
   "require": {
-    "bookdown/bookdown": "^1.0.0"
+    "bookdown/bookdown": "dev-search"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -31,11 +37,6 @@
     "branch-alias": {
       "dev-master": "1.0-dev",
       "dev-develop": "1.1-dev"
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "Tobiju\\Bookdown\\": "src/"
     }
   }
 }
