@@ -22,60 +22,95 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
 <script src="http://bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
 <script src="https://tobiju.github.io/share/prismjs/main.js"></script>
 <script src="https://tobiju.github.io/share/prismjs/prism.js"></script>
-<script src="https://raw.githubusercontent.com/olivernn/lunr.js/master/lunr.min.js"></script>
 <script type="text/javascript">
-    var index = lunr(function () {
-        this.ref('id');
-        this.field('title', {boost: 10});
-        this.field('content');
-    });
 
-    var store = {};
-
-    $.getJSON("/index.json", function (data) {
-        $.each(data, function (key, item) {
-            index.add({
-                id: item.id,
-                title: item.title,
-                content: item.content
-            });
-
-            store[item.id] = {
-                href: item.id,
-                title: item.title,
-                content: item.content
-            }
+    function Search() {
+        this.store = {};
+        this.index = lunr(function () {
+            this.ref('id');
+            this.field('title', {boost: 10});
+            this.field('content');
         });
-    });
+        this.searchResults = $('.js-search-results').addClass('list-search-results');
+    }
 
-    $(function () {
-        var searchResults = $('.js-search-results').addClass('list-search-results');
+    Search.prototype = {
+        constructor: Search,
+        init: function () {
+            this.createIndex();
+            this.bindEvents();
+        },
+        createIndex: function () {
+            var $this = this;
 
-        $('.js-search-input').keyup(function () {
+            $.getJSON("/index.json", function (data) {
+                $.each(data, function (key, item) {
+                    $this.index.add({
+                        id: item.id,
+                        title: item.title,
+                        content: item.content
+                    });
+
+                    $this.store[item.id] = {
+                        href: item.id,
+                        title: item.title,
+                        content: item.content
+                    }
+                });
+            });
+        },
+        bindEvents: function () {
+            var $this = this;
+
+            $('html').on('click', {}, $this.close);
+            $('.js-search-input, .js-search-results').on('click', {}, $this.click);
+            $('.js-search-input').on('focus', {}, $this.focus)
+                .on('keyup', {
+                    index: $this.index,
+                    store: $this.store,
+                    searchResults: $this.searchResults,
+                    cropText: $this.cropText
+                }, $this.search)
+                .on('keydown', {
+                    'close': $this.close
+                }, $this.navigation);
+        },
+        click: function (event) {
+            event.stopPropagation();
+        },
+        focus: function (event) {
+            $(this).data.searchInputWidth = $(this).css('width');
+            $(this).animate({
+                'width': 600
+            }, 500);
+        },
+        close: function (event) {
+            $('.js-search-results').hide();
+            $('.js-search-input').animate({
+                'width': $(this).data.searchInputWidth
+            }, 500);
+        },
+        search: function (event) {
+            if (event.keyCode == 13 || event.keyCode == 38 || event.keyCode == 40) {
+                return;
+            }
             var query = $(this).val(),
-                results = index.search(query);
+                results = event.data.index.search(query);
 
             if (!results.length) {
-                searchResults.empty();
+                event.data.searchResults.empty();
                 return;
             }
 
             var resultsList = results.reduce(function (ul, result) {
-                var item = store[result.ref];
-
+                var item = event.data.store[result.ref];
                 var title = $('<b>').text(item.title);
 
-                // TODO: move to function
-                var contentText = item.content;
-                var cropedText = '';
-
-                var re = new RegExp("\\s.{0,10}" + query + ".*?\\b.{0,10}.\\s", "gi");
-
-                $.each(contentText.match(re), function (key, value) {
-                    cropedText += '...' + value + '...';
-                });
-
-                var content = $('<p>').html(cropedText);
+                var cropText = event.data.cropText(item.content, query);
+                if (cropText.length === 0) {
+                    cropText = $('<p>').html(item.content.substring(0, 120) + "...");
+                }
+                var content = content = $('<p>').html(cropText);
 
                 var div = $('<div>')
                     .append(title)
@@ -89,8 +124,66 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
                 return ul;
             }, $('<ul>'));
 
-            searchResults.html(resultsList);
-        })
-    })
+            event.data.searchResults.html(resultsList);
+
+            $('.js-search-results').show();
+            $(".js-search-results li:first-child").addClass('selected');
+        },
+        cropText: function (content, query) {
+            var cropedText = '';
+            var re = new RegExp("\\s?(.{0,30})?" + query + ".*?\\b(.{0,30}.)?\\s?", "gi");
+
+            $.each(content.match(re), function (key, value) {
+                cropedText += '...' + value + '...';
+            });
+
+            return cropedText;
+        },
+        navigation: function (event) {
+            var selected = null;
+            var listSelector = ".js-search-results ul";
+            var listItemSelector = listSelector + " li";
+            var selectedListItemSelector = listItemSelector + ".selected";
+            var selectedListItemSelectorAnchor = listItemSelector + ".selected a";
+
+            // enter
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                event.data.close();
+                window.location.replace($(selectedListItemSelectorAnchor).attr('href'));
+            }
+
+            // up
+            if (event.keyCode == 38) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.prev().length == 0) {
+                    selected.siblings().last().addClass("selected").focus();
+                } else {
+                    selected.prev().addClass("selected").focus();
+                }
+                $(listSelector).scrollTop($(selectedListItemSelector).position().top);
+            }
+
+            // down
+            if (event.keyCode == 40) {
+                selected = $(selectedListItemSelector);
+                $(listItemSelector).removeClass("selected");
+
+                if (selected.next().length == 0) {
+                    selected.siblings().first().addClass("selected").focus();
+                } else {
+                    selected.next().addClass("selected").focus();
+                }
+                $(listSelector).scrollTop($(selectedListItemSelector).position().top);
+            }
+        }
+    };
+
+    $(function () {
+        var search = new Search();
+        search.init();
+    });
 </script>
 </body>
