@@ -12,7 +12,6 @@
 // this file multiple times.
 include_once __DIR__ . '/helper.php';
 
-
 // default library templates
 $library = (getenv('VENDOR_PATH') ?: dirname(dirname(dirname(__DIR__))).'/') . "bookdown/bookdown/templates";
 
@@ -25,6 +24,7 @@ $templates = $this->getViewRegistry();
 $templates->set("head", "{$templatePath}/head.php");
 $templates->set("meta", "{$templatePath}/meta.php");
 $templates->set("body", "{$templatePath}/body.php");
+$templates->set("script", "{$templatePath}/script.php");
 $templates->set("nav", "{$templatePath}/nav.php");
 $templates->set("core", "{$library}/core.php");
 $templates->set("navheader", "{$templatePath}/navheader.php");
