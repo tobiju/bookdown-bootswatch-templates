@@ -23,6 +23,7 @@ $templates = $this->getViewRegistry();
 
 $templates->set("head", "{$templatePath}/head.php");
 $templates->set("meta", "{$templatePath}/meta.php");
+$templates->set("style", "{$templatePath}/style.php");
 $templates->set("body", "{$templatePath}/body.php");
 $templates->set("script", "{$templatePath}/script.php");
 $templates->set("nav", "{$templatePath}/nav.php");

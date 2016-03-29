@@ -9,4 +9,5 @@
 ?>
 <head>
     <?= $this->render("meta"); ?>
+    <?= $this->render("style"); ?>
 </head>
