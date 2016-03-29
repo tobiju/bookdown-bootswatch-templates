@@ -43,6 +43,10 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             position: relative;
         }
 
+        .box-header {
+            position: relative;
+        }
+
         /* Header Section */
         header {
             background: white;
@@ -109,8 +113,41 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
         }
 
         /* Search */
+        .form-search {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 999;
+        }
+
+        @media (max-width: 767px) {
+            .form-search {
+                position: relative;
+                margin-top: 0;
+            }
+        }
+
+        .form-search .glyphicon-search {
+            position: absolute;
+            right: 24px;
+            top: 8px;
+        }
+
+        @media (max-width: 767px) {
+            .form-search .glyphicon-search {
+                top: 18px;
+            }
+        }
+
         .form-search .form-control {
             border: 0;
+            width: 80px;
+        }
+
+        @media (max-width: 767px) {
+            .form-search .form-control {
+                width: 100% !important;
+            }
         }
 
         .form-search .list-search-results {
@@ -120,14 +157,21 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
         .form-search .list-search-results ul {
             background: #eee;
             border: 1px solid inherit;
-            width: 100%;
+            list-style: none;
+            max-height: 300px;
+            overflow: auto;
             padding: 0;
             position: absolute;
-            list-style: none;
+            width: 100%;
+            z-index: 999;
         }
 
         .form-search .list-search-results ul li:nth-child(even) {
             background: rgba(255, 255, 255, 0.3)
+        }
+
+        .form-search .list-search-results ul li.selected {
+            background: #ccc;
         }
 
         .form-search .list-search-results ul li a {
@@ -219,6 +263,10 @@ $cssBootswatch = getenv('CSS_BOOTSWATCH') ?: 'cerulean';
             background: none !important;
             color: inherit;
             border-color: inherit;
+        }
+
+        .navbar-top {
+            position: relative;
         }
 
         .affix {

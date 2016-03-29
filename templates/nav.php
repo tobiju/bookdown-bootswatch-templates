@@ -15,8 +15,17 @@ while ($page->hasParent()) {
 }
 
 ?>
+
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="box-header container">
+        <form class="form-search navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                <input type="text" placeholder="Search" class="js-search-input form-control">
+                <div class="js-search-results"></div>
+            </div>
+        </form>
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#js-navbar-collapse" aria-expanded="false">
@@ -37,13 +46,6 @@ while ($page->hasParent()) {
                 'page' => $page,
                 'depth' => 0
             )); ?>
-
-            <form class="form-search navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" placeholder="Search" class="js-search-input form-control">
-                    <div class="js-search-results"></div>
-                </div>
-            </form>
         </div>
     </div>
 </nav>
