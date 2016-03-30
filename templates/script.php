@@ -35,8 +35,9 @@
         },
         createIndex: function () {
             var $this = this;
+            var indexFilePath = $('.js-search-input').data('roothref') + 'index.json';
 
-            $.getJSON("/index.json", function (data) {
+            $.getJSON(indexFilePath, function (data) {
                 $.each(data, function (key, item) {
                     $this.index.add({
                         id: item.id,
@@ -55,51 +56,62 @@
         bindEvents: function () {
             var $this = this;
 
-            $('html').on('click', {}, $this.close);
-            $('.js-search-input, .js-search-results').on('click', {}, $this.click);
-            $('.js-search-input').on('focus', {}, $this.focus)
-                .on('keyup', {
-                    index: $this.index,
-                    store: $this.store,
-                    searchResults: $this.searchResults,
-                    cropText: $this.cropText
-                }, $this.search)
-                .on('keydown', {
-                    'close': $this.close
-                }, $this.navigation);
+            $('html')
+                .on('click', function (event) {
+                    $this.close($(this), event);
+                });
+
+            $('.js-search-input, .js-search-results')
+                .on('click', function (event) {
+                    $this.click($(this), event);
+                });
+
+            $('.js-search-input')
+                .on('focus', function (event) {
+                    $this.focus($(this), event);
+                })
+                .on('keyup', function (event) {
+                    $this.search($(this), event)
+                })
+                .on('keydown', function (event) {
+                    $this.navigation($(this), event)
+                })
         },
-        click: function (event) {
+        click: function (element, event) {
             event.stopPropagation();
         },
-        focus: function (event) {
-            $(this).data.searchInputWidth = $(this).css('width');
-            $(this).animate({
+        focus: function (element, event) {
+            this.searchInputWidth = element.css('width');
+            element.animate({
                 'width': 600
             }, 500);
         },
-        close: function (event) {
+        close: function (element, event) {
             $('.js-search-results').hide();
             $('.js-search-input').animate({
                 'width': $(this).data.searchInputWidth
             }, 500);
         },
-        search: function (event) {
+        search: function (element, event) {
+            var $this = this;
+
             if (event.keyCode == 13 || event.keyCode == 38 || event.keyCode == 40) {
                 return;
             }
-            var query = $(this).val(),
-                results = event.data.index.search(query);
+
+            var query = element.val(),
+                results = $this.index.search(query);
 
             if (!results.length) {
-                event.data.searchResults.empty();
+                $this.searchResults.empty();
                 return;
             }
 
             var resultsList = results.reduce(function (ul, result) {
-                var item = event.data.store[result.ref];
+                var item = $this.store[result.ref];
                 var title = $('<b>').text(item.title);
 
-                var cropText = event.data.cropText(item.content, query);
+                var cropText = $this.cropText(item.content, query);
                 if (cropText.length === 0) {
                     cropText = $('<p>').html(item.content.substring(0, 120) + "...");
                 }
@@ -117,7 +129,7 @@
                 return ul;
             }, $('<ul>'));
 
-            event.data.searchResults.html(resultsList);
+            this.searchResults.html(resultsList);
 
             $('.js-search-results').show();
             $(".js-search-results li:first-child").addClass('selected');
@@ -132,7 +144,7 @@
 
             return cropedText;
         },
-        navigation: function (event) {
+        navigation: function (element, event) {
             var selected = null;
             var listSelector = ".js-search-results ul";
             var listItemSelector = listSelector + " li";
@@ -142,7 +154,7 @@
             // enter
             if (event.keyCode == 13) {
                 event.preventDefault();
-                event.data.close();
+                this.close();
                 window.location.replace($(selectedListItemSelectorAnchor).attr('href'));
             }
 

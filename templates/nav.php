@@ -8,12 +8,7 @@
  */
 
 /* @var $page \Bookdown\Bookdown\Content\Page */
-$page = $this->page;
-
-while ($page->hasParent()) {
-    $page = $page->getParent();
-}
-
+$page = $this->page->getRoot();
 ?>
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -21,7 +16,11 @@ while ($page->hasParent()) {
         <form class="form-search navbar-form navbar-right" role="search">
             <div class="form-group">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                <input type="text" placeholder="Search" class="js-search-input form-control">
+                <input type="text"
+                       placeholder="Search"
+                       class="js-search-input form-control"
+                       data-roothref="<?= $page->getHref(); ?>">
+
                 <div class="js-search-results"></div>
             </div>
         </form>
