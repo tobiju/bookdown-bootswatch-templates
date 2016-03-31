@@ -87,7 +87,7 @@
             }, 500);
         },
         close: function (element, event) {
-            var $this = $(this);
+            var $this = this;
             
             $('.js-search-results').hide();
             $('.js-search-input').animate({
