@@ -87,9 +87,11 @@
             }, 500);
         },
         close: function (element, event) {
+            var $this = $(this);
+            
             $('.js-search-results').hide();
             $('.js-search-input').animate({
-                'width': $(this).data.searchInputWidth
+                'width': $this.searchInputWidth
             }, 500);
         },
         search: function (element, event) {
