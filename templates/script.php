@@ -34,8 +34,8 @@
             this.bindEvents();
         },
         createIndex: function () {
-            var $this = this;
-            var indexFilePath = $('.js-search-input').data('roothref') + 'index.json';
+            var $this = this,
+                indexFilePath = $('.js-search-input').data('roothref') + 'index.json';
 
             $.getJSON(indexFilePath, function (data) {
                 $.each(data, function (key, item) {
@@ -88,7 +88,7 @@
         },
         close: function (element, event) {
             var $this = this;
-            
+
             $('.js-search-results').hide();
             $('.js-search-input').animate({
                 'width': $this.searchInputWidth
@@ -137,8 +137,8 @@
             $(".js-search-results li:first-child").addClass('selected');
         },
         cropText: function (content, query) {
-            var cropedText = '';
-            var re = new RegExp("\\s?(.{0,30})?" + query + ".*?\\b(.{0,30}.)?\\s?", "gi");
+            var cropedText = '',
+                re = new RegExp("\\s?(.{0,30})?" + query + ".*?\\b(.{0,30}.)?\\s?", "gi");
 
             $.each(content.match(re), function (key, value) {
                 cropedText += '...' + value + '...';
@@ -147,11 +147,11 @@
             return cropedText;
         },
         navigation: function (element, event) {
-            var selected = null;
-            var listSelector = ".js-search-results ul";
-            var listItemSelector = listSelector + " li";
-            var selectedListItemSelector = listItemSelector + ".selected";
-            var selectedListItemSelectorAnchor = listItemSelector + ".selected a";
+            var selected = null,
+                listSelector = ".js-search-results ul",
+                listItemSelector = listSelector + " li",
+                selectedListItemSelector = listItemSelector + ".selected",
+                selectedListItemSelectorAnchor = listItemSelector + ".selected a";
 
             // enter
             if (event.keyCode == 13) {
@@ -166,11 +166,13 @@
                 $(listItemSelector).removeClass("selected");
 
                 if (selected.prev().length == 0) {
-                    selected.siblings().last().addClass("selected").focus();
+                    selected.siblings().last().addClass("selected");
                 } else {
-                    selected.prev().addClass("selected").focus();
+                    selected.prev().addClass("selected");
                 }
-                $(listSelector).scrollTop($(selectedListItemSelector).position().top);
+
+                selected = $(selectedListItemSelector);
+                this.scrollListUp(selected);
             }
 
             // down
@@ -179,11 +181,40 @@
                 $(listItemSelector).removeClass("selected");
 
                 if (selected.next().length == 0) {
-                    selected.siblings().first().addClass("selected").focus();
+                    selected.siblings().first().addClass("selected");
                 } else {
-                    selected.next().addClass("selected").focus();
+                    selected.next().addClass("selected");
                 }
-                $(listSelector).scrollTop($(selectedListItemSelector).position().top);
+
+                selected = $(selectedListItemSelector);
+                this.scrollListDown(selected);
+            }
+        },
+        scrollListDown: function (element) {
+            var ul = element.parent(),
+                ulHeight = ul.height(),
+                ulBottomPosition = ulHeight + ul.scrollTop(),
+                liBottomPosition = element.position().top + element.height();
+
+            if (liBottomPosition > ulBottomPosition) {
+                ul.scrollTop(liBottomPosition - ulHeight);
+            }
+
+            if (element.is(':first-child')) {
+                ul.scrollTop(0);
+            }
+        },
+        scrollListUp: function (element) {
+            var ul = element.parent(),
+                ulTopPosition = ul.scrollTop(),
+                liTopPosition = element.position().top;
+
+            if (liTopPosition < ulTopPosition) {
+                ul.scrollTop(element.position().top);
+            }
+
+            if (element.is(':last-child')) {
+                ul.scrollTop(element.position().top - element.height());
             }
         }
     };
