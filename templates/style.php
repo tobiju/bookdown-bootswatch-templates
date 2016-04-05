@@ -124,18 +124,6 @@
         }
     }
 
-    .form-search .glyphicon-search {
-        position: absolute;
-        right: 24px;
-        top: 8px;
-    }
-
-    @media (max-width: 767px) {
-        .form-search .glyphicon-search {
-            top: 18px;
-        }
-    }
-
     .form-search .form-control {
         border: 0;
         width: 80px;

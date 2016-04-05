@@ -15,7 +15,6 @@ $page = $this->page->getRoot();
     <div class="box-header container">
         <form class="form-search navbar-form navbar-right" role="search">
             <div class="form-group">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 <input type="text"
                        placeholder="Search"
                        class="js-search-input form-control"

@@ -74,7 +74,9 @@
                     $this.search($(this), event)
                 })
                 .on('keydown', function (event) {
-                    $this.navigation($(this), event)
+                    if ($('.js-search-results ul').is(':visible')){
+                        $this.navigation($(this), event)
+                    }
                 })
         },
         click: function (element, event) {
@@ -85,6 +87,7 @@
             element.animate({
                 'width': 600
             }, 500);
+            $('#js-navbar-collapse > ul').fadeOut();
         },
         close: function (element, event) {
             var $this = this;
@@ -93,6 +96,7 @@
             $('.js-search-input').animate({
                 'width': $this.searchInputWidth
             }, 500);
+            $('#js-navbar-collapse > ul').fadeIn();
         },
         search: function (element, event) {
             var $this = this;
