@@ -31,7 +31,7 @@ $startLevel = 0;
             $maxStingLength = 24;
             $title = $entry->getTitle();
             if (strlen($title) > $maxStingLength) {
-                $title = substr($title, 0, $maxStingLength) . '...';
+                $title = mb_substr($title, 0, $maxStingLength) . '...';
             }
             ?>
             <li>
