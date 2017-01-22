@@ -8,15 +8,22 @@
  */
 
 /* @var $page \Bookdown\Bookdown\Content\Page */
-$page = $this->page;
-
-while ($page->hasParent()) {
-    $page = $page->getParent();
-}
-
+$page = $this->page->getRoot();
 ?>
+
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="box-header container">
+        <form class="form-search navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text"
+                       placeholder="Search"
+                       class="js-search-input form-control"
+                       data-roothref="<?= $page->getHref(); ?>">
+
+                <div class="js-search-results"></div>
+            </div>
+        </form>
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#js-navbar-collapse" aria-expanded="false">
