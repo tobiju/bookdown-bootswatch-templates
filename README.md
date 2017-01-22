@@ -11,7 +11,7 @@ Put the following into your `composer.json` or run `composer require tobiju/book
 
     {
         "require-dev": {
-            "tobiju/bookdown-bootswatch-templates": "^0.2.0"
+            "tobiju/bookdown-bootswatch-templates": "^1.1.0"
         }
     }
 

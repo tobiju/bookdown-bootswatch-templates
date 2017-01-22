@@ -23,14 +23,6 @@
     }
   ],
   "require": {
-    "bookdown/bookdown": "^1.0.0"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.0-dev",
-      "dev-develop": "1.1-dev"
-    }
+    "bookdown/bookdown": "1.x-dev"
   }
 }
