@@ -29,6 +29,9 @@
     code span {
         white-space: nowrap;
     }
+    code span.comment {
+        white-space: pre;
+    }
 
     .highlight {
         background: #FFFF88;
