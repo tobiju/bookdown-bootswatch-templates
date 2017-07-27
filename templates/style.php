@@ -174,6 +174,18 @@
         font-weight: bold;
         padding: 0;
     }
+    
+    .list-toc .list-group-item.level-2 {
+        padding-left: 20px;
+    }
+
+    .list-toc .list-group-item.level-3 {
+        padding-left: 40px;
+    }
+
+    .list-toc .list-group-item.level-4 {
+        padding-left: 60px;
+    }
 
     .list-toc .list-group-item .row {
         padding: 7px 0;
