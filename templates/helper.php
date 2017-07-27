@@ -3,6 +3,9 @@
 /**
  * Render a nested list of elements as HTML list item. The function calls itself in case
  * of nested elements (identified by the key 'nested').
+ *
+ * Adds a level- css class to aid in indentation. Thanks to prooph (getprooph.org)
+ * for the code. 
  * @param  array $elements
  * @param  Aura\View\View $context
  */
@@ -11,7 +14,7 @@ function renderTocList(array $elements, Aura\View\View $context)
     foreach ($elements as $entry) {
         $entryObj = new Bookdown\Bookdown\Content\Heading($entry['number'], $entry['title'], $entry['href'], $entry['id']);
 
-        echo '<li class="list-group-item">';
+        echo '<li class="list-group-item level-' . $entryObj->getLevel() . '">';
         echo '<div class="row clearfix">';
         echo '<div class="col-sm-2">' . '<span class="text-number">' . "{$entryObj->getNumber()}" . '</span></div>';
         echo '<div class="col-sm-10">' . $context->anchorRaw($entryObj->getHref(), $entryObj->getTitle()) . '</div>';
