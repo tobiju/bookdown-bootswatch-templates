@@ -14,13 +14,13 @@ function renderTocList(array $elements, Aura\View\View $context)
     foreach ($elements as $entry) {
         $entryObj = new Bookdown\Bookdown\Content\Heading($entry['number'], $entry['title'], $entry['href'], $entry['id']);
 
-        echo '<li class="list-group-item level-' . $entryObj->getLevel() . '">';
+        echo '<li class="list-group-item level-default level-' . $entryObj->getLevel() . '">';
         echo '<div class="row clearfix">';
         echo '<div class="col-sm-2">' . '<span class="text-number">' . "{$entryObj->getNumber()}" . '</span></div>';
         echo '<div class="col-sm-10">' . $context->anchorRaw($entryObj->getHref(), $entryObj->getTitle()) . '</div>';
         echo '</div>';
         if (isset($entry['nested'])) {
-            $collapseId = 'collapse-' . $entryObj->getAnchor();
+            $collapseId = 'collapse-' . str_replace('.','-', trim($entryObj->getNumber(),'.'));
             echo '<a class="bbt-toc-toggle badge glyphicon collapsed" href="#' . $collapseId . '" data-toggle="collapse" aria-expanded="false" aria-controls="' . $collapseId . '"></a>';
             echo '<ul class="list-group list-toc-nested collapse" id="' . $collapseId . '">';
             renderTocList($entry['nested'], $context);
